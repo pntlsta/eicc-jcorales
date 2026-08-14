@@ -26,7 +26,7 @@
   .mono{font-family:'IBM Plex Mono',monospace;}
   button{font-family:inherit;}
 
-  .shell{display:grid; grid-template-columns:296px 1fr; min-height:100vh;}
+  .shell{display:grid; grid-template-columns:340px 1fr; min-height:100vh;}
   @media (max-width:860px){
     .shell{grid-template-columns:1fr;}
     .sidebar{order:2; border-right:none; border-top:1px solid var(--line);}
@@ -136,6 +136,24 @@
 
   .card-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
   @media (max-width:640px){.card-grid{grid-template-columns:1fr;}}
+
+  /* notes panel (main page) */
+  .notes-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
+  .notes-panel-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .notes-panel-head h2{font-size:18px; margin:0;}
+  .notes-panel-add{display:flex; gap:8px; margin-bottom:14px;}
+  .notes-panel-add textarea{flex:1; min-height:54px; resize:vertical; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-family:inherit; font-size:13px; background:var(--paper-dim); color:var(--ink);}
+  .notes-panel-add button{flex:none; align-self:flex-end;}
+  .notes-panel-list{display:flex; flex-direction:column;}
+  .note-row-main{display:flex; gap:10px; align-items:flex-start; padding:11px 0; border-top:1px solid var(--line-soft);}
+  .note-row-main:first-child{border-top:none;}
+  .note-text-main{flex:1; font-size:13.5px; line-height:1.5; color:var(--ink);}
+  .note-text-main.pending{opacity:.55; font-style:italic;}
+  .note-meta-main{font-size:10.5px; color:var(--ink-soft); margin-top:3px; font-family:'IBM Plex Mono',monospace;}
+  .note-actions-main{display:flex; gap:6px; flex:none;}
+  .note-icon-btn-main{background:none; border:1px solid var(--line); color:var(--ink-soft); cursor:pointer; font-size:12px; padding:4px 8px; border-radius:5px;}
+  .note-icon-btn-main:hover{background:var(--paper-dim); color:var(--ink);}
+  .notes-empty{color:var(--ink-soft); font-size:13px; padding:6px 0;}
   .course-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; cursor:pointer; text-align:left; padding:0; font-family:inherit; display:block; width:100%; transition:transform .12s ease, box-shadow .12s ease; color:var(--ink);}
   .course-card:hover{transform:translateY(-2px); box-shadow:0 4px 8px rgba(31,35,40,.08), 0 14px 28px -14px rgba(31,35,40,.22);}
   .card-ink{height:7px;}
@@ -211,15 +229,6 @@
       <div class="legend" id="legend"></div>
     </div>
 
-    <div class="sb-section">
-      <div class="sb-label"><span>Notes</span><button class="sb-mini-btn" id="noteAddToggle">+ Add</button></div>
-      <div id="notesList"></div>
-      <div class="note-add-row" id="noteAddRow" style="display:none;">
-        <textarea id="noteAddText" placeholder="Type a note..."></textarea>
-        <button class="sb-mini-btn" id="noteAddSubmit">Add</button>
-      </div>
-    </div>
-
     <div class="sb-bottom">
       <div class="cmd-row">
         <button class="cmd-btn" id="cmdToggle">+ Command</button>
@@ -270,6 +279,18 @@
       </div>
     </div>
 
+    <section class="notes-panel">
+      <div class="notes-panel-head">
+        <h2>Notes</h2>
+        <button class="sb-mini-btn" id="noteAddToggle" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink);">+ Add note</button>
+      </div>
+      <div class="notes-panel-add" id="noteAddRow" style="display:none;">
+        <textarea id="noteAddText" placeholder="Type a note..."></textarea>
+        <button class="sb-mini-btn" id="noteAddSubmit" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink);">Add</button>
+      </div>
+      <div class="notes-panel-list" id="notesList"></div>
+    </section>
+
     <div class="card-grid" id="homeView"></div>
 
     <div class="detail" id="detailView">
@@ -311,7 +332,7 @@
 <script>
 /* ============ CONFIG ============ */
 // EDIT THIS before deploying: "your-github-username/your-repo-name"
-const GITHUB_REPO = "pntlsta/eicc-jcorales";
+const GITHUB_REPO = "yourusername/yourrepo";
 const DATA_URL = "data/assignments.json";
 const NOTES_URL = "data/notes.json";
 
@@ -507,15 +528,18 @@ document.getElementById('overlay').addEventListener('click', e=>{ if(e.target.id
 function renderNotes(){
   const list = document.getElementById('notesList');
   if(state.notes.length === 0){
-    list.innerHTML = `<div class="sb-empty">No notes yet.</div>`;
+    list.innerHTML = `<div class="notes-empty">No notes yet. Click "+ Add note" to write one.</div>`;
     return;
   }
   list.innerHTML = state.notes.map(n=>`
-    <div class="note-row">
-      <div class="note-text${n._pending ? ' pending' : ''}">${n.text}</div>
-      <div class="note-actions">
-        <button class="note-icon-btn" onclick="editNote(${n.id})">&#9998;</button>
-        <button class="note-icon-btn" onclick="deleteNote(${n.id})">&times;</button>
+    <div class="note-row-main">
+      <div>
+        <div class="note-text-main${n._pending ? ' pending' : ''}">${n.text}</div>
+        <div class="note-meta-main">#${n.id} &middot; ${n.created || ''}${n._pending ? ' &middot; unsaved' : ''}</div>
+      </div>
+      <div class="note-actions-main">
+        <button class="note-icon-btn-main" onclick="editNote(${n.id})">Edit</button>
+        <button class="note-icon-btn-main" onclick="deleteNote(${n.id})">Delete</button>
       </div>
     </div>`).join('');
 }
