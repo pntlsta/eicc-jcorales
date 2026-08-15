@@ -1514,17 +1514,6 @@
       "available": "2026-11-08",
       "published": true,
       "completed": false
-    },
-    {
-      "id": "grd463-18",
-      "course": "grd463",
-      "name": "try",
-      "points": null,
-      "type": "Assignment",
-      "due": "2026-08-14",
-      "available": null,
-      "published": true,
-      "completed": false
     }
   ]
 }
