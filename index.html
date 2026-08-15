@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fall 2026 Course Traveler</title>
+<title>EICC Classes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#FAFAF6; --paper-dim:#F1EFE8; --ink:#1F2328; --ink-soft:#4B5158;
     --line:#DEDACE; --line-soft:#EAE7DD;
-    --c-ps:#3B5BA5; --c-id:#B23A5C; --c-pk:#C07A2B; --c-is:#2E8B77;
     --radius:10px;
     --shadow:0 1px 2px rgba(31,35,40,.06), 0 8px 24px -12px rgba(31,35,40,.15);
     --sidebar-bg:#1F2328;
+    --red:#D9534F; --green:#3E8E5C;
     font-size:16px;
   }
   body.dark{
@@ -25,6 +25,7 @@
   h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;}
   .mono{font-family:'IBM Plex Mono',monospace;}
   button{font-family:inherit;}
+  input,select,textarea{font-family:inherit;}
 
   .shell{display:grid; grid-template-columns:340px 1fr; min-height:100vh;}
   @media (max-width:860px){
@@ -38,7 +39,7 @@
   .sidebar::before{content:""; position:absolute; top:14px; right:14px; width:14px; height:14px; border:1px solid rgba(237,238,233,.35); border-radius:50%;}
   .sidebar::after{content:""; position:absolute; top:19px; right:19px; width:4px; height:4px; background:rgba(237,238,233,.5); border-radius:50%;}
   .sb-brand{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9AA0A6; margin-bottom:2px;}
-  .sb-title{font-size:19px; font-weight:600; margin:0 0 20px; line-height:1.25;}
+  .sb-title{font-size:21px; font-weight:600; margin:0 0 20px; line-height:1.25;}
   .sb-section{margin-bottom:22px;}
   .sb-label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#9AA0A6; margin-bottom:9px; display:flex; justify-content:space-between; align-items:baseline;}
   .sb-range{color:#6E747B; font-size:10.5px;}
@@ -51,50 +52,25 @@
   .due-meta{font-size:11px; color:#9AA0A6; margin-top:2px;}
   .due-meta .code{color:#C7CBCF;}
 
-  /* mini/expandable calendar */
+  /* mini calendar */
   .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
   .cal-month{font-size:12.5px; font-weight:600; letter-spacing:.02em;}
   .cal-controls{display:flex; gap:4px; align-items:center;}
-  .cal-nav, .cal-size-btn{background:rgba(237,238,233,.08); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; height:20px; border-radius:5px; cursor:pointer; font-size:10px; line-height:1; display:flex; align-items:center; justify-content:center; padding:0 6px;}
-  .cal-nav{width:20px; padding:0;}
-  .cal-nav:hover, .cal-size-btn:hover{background:rgba(237,238,233,.18);}
-  .cal-size-btn.active{background:#EDEEE9; color:#1F2328; border-color:#EDEEE9;}
+  .cal-nav{background:rgba(237,238,233,.08); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; width:20px; height:20px; border-radius:5px; cursor:pointer; font-size:11px; line-height:1; display:flex; align-items:center; justify-content:center; padding:0;}
+  .cal-nav:hover{background:rgba(237,238,233,.18);}
   .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:10px;}
   .cal-dow{font-size:9.5px; text-align:center; color:#7A8086; padding-bottom:3px;}
   .cal-cell{aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:11px; color:#C7CBCF; border-radius:5px; position:relative; cursor:default; background:rgba(237,238,233,.03);}
-  .cal-cell.pad{background:none; color:transparent;}
-  .cal-cell.has-due{cursor:pointer; background:rgba(237,238,233,.09);}
-  .cal-cell.has-due:hover{background:rgba(237,238,233,.18);}
-  .cal-cell.today{outline:1px solid #EDEEE9; outline-offset:-1px;}
+  .cal-cell.pad{background:none !important; color:transparent; box-shadow:none !important;}
+  .cal-cell.clickable{cursor:pointer;}
+  .cal-cell.clickable:hover{filter:brightness(1.25);}
   .cal-dots{display:flex; gap:2px; position:absolute; bottom:3px;}
   .cal-dots span{width:4px; height:4px; border-radius:50%;}
   .legend{display:flex; flex-direction:column; gap:6px; padding-top:8px; border-top:1px solid rgba(237,238,233,.12);}
   .legend-row{display:flex; align-items:center; gap:7px; font-size:11px; color:#B7BBBF;}
-
-  /* calendar expanded overlay */
-  .cal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; z-index:60; align-items:flex-start; justify-content:flex-end;}
-  .cal-overlay.show{display:flex;}
-  .cal-panel{background:var(--sidebar-bg); color:#EDEEE9; height:100%; padding:24px; overflow-y:auto; box-shadow:-8px 0 30px rgba(0,0,0,.3);}
-  .cal-panel.size-50{width:50vw;}
-  .cal-panel.size-75{width:75vw;}
-  .cal-panel .cal-grid{gap:6px; margin-bottom:16px;}
-  .cal-panel .cal-cell{font-size:15px; border-radius:8px;}
-  .cal-panel .cal-dots span{width:6px; height:6px;}
-  .cal-panel-close{background:rgba(237,238,233,.1); border:1px solid rgba(237,238,233,.2); color:#EDEEE9; width:28px; height:28px; border-radius:7px; cursor:pointer; font-size:15px;}
-
-  /* notes */
-  .note-row{padding:8px 0; border-top:1px dashed rgba(237,238,233,.15); display:flex; gap:8px; align-items:flex-start;}
-  .note-row:first-child{border-top:none;}
-  .note-text{font-size:12.5px; line-height:1.4; color:#DCDDD8; flex:1; word-break:break-word;}
-  .note-text.pending{opacity:.6; font-style:italic;}
-  .note-actions{display:flex; gap:5px; flex:none;}
-  .note-icon-btn{background:none; border:none; color:#9AA0A6; cursor:pointer; font-size:12px; padding:2px;}
-  .note-icon-btn:hover{color:#EDEEE9;}
-  .note-add-row{display:flex; gap:6px; margin-top:8px;}
-  .note-add-row textarea{flex:1; resize:vertical; min-height:34px; background:rgba(237,238,233,.06); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; border-radius:6px; padding:6px 8px; font-size:12px; font-family:inherit;}
-  .note-add-row button{flex:none;}
-  .sb-mini-btn{background:rgba(237,238,233,.08); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; border-radius:6px; cursor:pointer; font-size:11px; padding:5px 9px;}
-  .sb-mini-btn:hover{background:rgba(237,238,233,.18);}
+  .cal-key{display:flex; gap:12px; padding-top:8px; font-size:10.5px; color:#9AA0A6;}
+  .cal-key span{display:flex; align-items:center; gap:5px;}
+  .cal-key i{width:10px; height:10px; border-radius:3px; display:inline-block;}
 
   /* command area, pinned bottom */
   .sb-bottom{margin-top:auto; padding-top:14px; border-top:1px solid rgba(237,238,233,.12);}
@@ -103,9 +79,9 @@
   .cmd-btn:hover{background:rgba(237,238,233,.16);}
   .info-btn{flex:none; width:30px; height:36px; border-radius:7px; background:rgba(237,238,233,.09); border:1px solid rgba(237,238,233,.18); color:#EDEEE9; cursor:pointer; font-size:12px; font-style:italic; font-family:'Space Grotesk',serif;}
   .info-btn:hover{background:rgba(237,238,233,.16);}
-  .info-bubble{position:absolute; bottom:44px; right:0; width:270px; background:#111316; border:1px solid rgba(237,238,233,.2); border-radius:8px; padding:12px 13px; font-size:11px; color:#D3D6D9; line-height:1.6; box-shadow:0 12px 30px rgba(0,0,0,.4); display:none; z-index:20;}
+  .info-bubble{position:absolute; bottom:44px; right:0; width:280px; background:#111316; border:1px solid rgba(237,238,233,.2); border-radius:8px; padding:12px 13px; font-size:11px; color:#D3D6D9; line-height:1.6; box-shadow:0 12px 30px rgba(0,0,0,.4); display:none; z-index:20;}
   .info-bubble.show{display:block;}
-  .info-bubble code{background:rgba(237,238,233,.1); padding:1px 4px; border-radius:3px; font-family:'IBM Plex Mono',monospace; font-size:10px;}
+  .info-bubble code{background:rgba(237,238,233,.1); padding:1px 4px; border-radius:3px; font-family:'IBM Plex Mono',monospace; font-size:9.5px;}
   .info-bubble .ib-title{color:#EDEEE9; font-weight:600; margin-bottom:6px; font-size:11.5px;}
   .cmd-panel{margin-top:8px; background:rgba(237,238,233,.05); border:1px solid rgba(237,238,233,.14); border-radius:8px; padding:10px;}
   .cmd-choice{display:flex; gap:8px;}
@@ -116,9 +92,12 @@
   .cmd-line-wrap input{flex:1; background:none; border:none; color:#EDEEE9; font-family:'IBM Plex Mono',monospace; font-size:12px; outline:none;}
   .cmd-error{color:#E48A8A; font-size:11px; margin-top:6px;}
   .cmd-hint{color:#8B9096; font-size:10.5px; margin-top:6px;}
+  #cmdNoteArea textarea{width:100%; min-height:50px; margin-top:8px; background:rgba(237,238,233,.06); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; border-radius:6px; padding:7px 9px; font-size:12px;}
+  .sb-mini-btn{background:rgba(237,238,233,.08); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; border-radius:6px; cursor:pointer; font-size:11px; padding:5px 9px; margin-top:6px;}
+  .sb-mini-btn:hover{background:rgba(237,238,233,.18);}
 
   .save-bar{margin-top:10px; display:flex; gap:8px; align-items:center;}
-  .save-btn{flex:1; background:#3E8E5C; border:none; color:#fff; font-weight:600; padding:10px; border-radius:7px; cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; gap:6px;}
+  .save-btn{flex:1; background:var(--green); border:none; color:#fff; font-weight:600; padding:10px; border-radius:7px; cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; gap:6px;}
   .save-btn:hover{background:#357A4E;}
   .save-btn:disabled{background:rgba(237,238,233,.1); color:#6E747B; cursor:default;}
   .save-count{background:rgba(255,255,255,.25); border-radius:100px; font-size:10.5px; padding:1px 7px;}
@@ -134,15 +113,12 @@
   .theme-btn{display:inline-flex;}
   .back-btn:hover, .theme-btn:hover{background:var(--paper); border-color:#C9C4B4;}
 
-  .card-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
-  @media (max-width:640px){.card-grid{grid-template-columns:1fr;}}
-
   /* notes panel (main page) */
   .notes-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
   .notes-panel-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
   .notes-panel-head h2{font-size:18px; margin:0;}
   .notes-panel-add{display:flex; gap:8px; margin-bottom:14px;}
-  .notes-panel-add textarea{flex:1; min-height:54px; resize:vertical; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-family:inherit; font-size:13px; background:var(--paper-dim); color:var(--ink);}
+  .notes-panel-add textarea{flex:1; min-height:54px; resize:vertical; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:13px; background:var(--paper-dim); color:var(--ink);}
   .notes-panel-add button{flex:none; align-self:flex-end;}
   .notes-panel-list{display:flex; flex-direction:column;}
   .note-row-main{display:flex; gap:10px; align-items:flex-start; padding:11px 0; border-top:1px solid var(--line-soft);}
@@ -154,46 +130,87 @@
   .note-icon-btn-main{background:none; border:1px solid var(--line); color:var(--ink-soft); cursor:pointer; font-size:12px; padding:4px 8px; border-radius:5px;}
   .note-icon-btn-main:hover{background:var(--paper-dim); color:var(--ink);}
   .notes-empty{color:var(--ink-soft); font-size:13px; padding:6px 0;}
-  .course-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; cursor:pointer; text-align:left; padding:0; font-family:inherit; display:block; width:100%; transition:transform .12s ease, box-shadow .12s ease; color:var(--ink);}
-  .course-card:hover{transform:translateY(-2px); box-shadow:0 4px 8px rgba(31,35,40,.08), 0 14px 28px -14px rgba(31,35,40,.22);}
+
+  .card-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  @media (max-width:640px){.card-grid{grid-template-columns:1fr;}}
+  .course-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; position:relative;}
+  .card-hit{cursor:pointer; text-align:left; padding:0; font-family:inherit; display:block; width:100%; background:none; border:none; color:var(--ink); transition:transform .12s ease;}
+  .course-card:hover{box-shadow:0 4px 8px rgba(31,35,40,.08), 0 14px 28px -14px rgba(31,35,40,.22);}
   .card-ink{height:7px;}
-  .card-body{padding:20px 22px 22px;}
+  .card-body{padding:20px 22px 18px;}
   .card-code{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.04em; color:var(--ink-soft); display:inline-block; padding:3px 8px; border-radius:5px; background:var(--paper-dim); margin-bottom:12px;}
   .card-title{font-size:19px; font-weight:600; margin:0 0 6px;}
   .card-desc{font-size:13px; color:var(--ink-soft); line-height:1.5; margin:0 0 16px;}
-  .card-stats{display:flex; gap:18px; border-top:1px solid var(--line-soft); padding-top:12px;}
+  .card-stats{display:flex; gap:18px; border-top:1px solid var(--line-soft); padding-top:12px; padding-bottom:12px;}
   .stat-num{font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:600;}
   .stat-label{font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em;}
+  .card-footer{padding:0 22px 18px; display:flex; justify-content:flex-end;}
+  .card-delete-btn{background:none; border:1px solid var(--red); color:var(--red); font-size:11px; font-weight:600; letter-spacing:.03em; padding:6px 12px; border-radius:6px; cursor:pointer;}
+  .card-delete-btn:hover{background:var(--red); color:#fff;}
+
+  .add-course-row{display:flex; justify-content:center; margin:8px 0 30px;}
+  .add-course-btn{width:44px; height:44px; border-radius:50%; background:var(--paper); border:1px solid var(--line); box-shadow:var(--shadow); font-size:20px; color:var(--ink-soft); cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .add-course-btn:hover{color:var(--ink); border-color:#C9C4B4;}
 
   .detail{display:none;}
   .detail-head{display:flex; align-items:center; gap:14px; margin-bottom:22px; flex-wrap:wrap;}
   .ink-chip{width:14px; height:14px; border-radius:4px; flex:none;}
-  .assign-table{width:100%; border-collapse:collapse; background:var(--paper); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);}
+  .assign-table{width:100%; border-collapse:collapse; background:var(--paper); border-radius:var(--radius) var(--radius) 0 0; overflow:hidden; box-shadow:var(--shadow);}
   .assign-table th{text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); padding:10px 14px; background:var(--paper-dim); border-bottom:1px solid var(--line);}
+  .assign-table th.sortable{cursor:pointer; user-select:none;}
+  .assign-table th.sortable:hover{color:var(--ink);}
+  .assign-table th .arrow{font-size:9px; margin-left:3px;}
   .assign-table td{padding:11px 14px; font-size:13.5px; border-bottom:1px solid var(--line-soft);}
   .assign-table tr:last-child td{border-bottom:none;}
   .assign-table td.mono, .assign-table th.mono{font-family:'IBM Plex Mono',monospace; font-size:12.5px;}
-  .assign-table tr.is-complete td{opacity:.45; text-decoration:line-through;}
-  .assign-table tr.is-complete td.chk-cell{opacity:1; text-decoration:none;}
+  .assign-table tr.is-complete{background:rgba(62,142,92,.16);}
+  body.dark .assign-table tr.is-complete{background:rgba(62,142,92,.26);}
+  .assign-table tr.is-complete td{text-decoration:line-through; text-decoration-color:rgba(31,35,40,.35);}
+  .assign-table tr.is-complete td.chk-cell, .assign-table tr.is-complete td.del-cell{text-decoration:none;}
   .chk-cell{width:30px;}
   .chk-cell input{width:16px; height:16px; cursor:pointer;}
+  .del-cell{width:30px; text-align:center;}
+  .row-del-btn{background:none; border:none; color:var(--red); font-size:15px; font-weight:700; cursor:pointer; line-height:1; padding:2px 4px;}
+  .row-del-btn:hover{background:var(--red); color:#fff; border-radius:4px;}
   .type-pill{font-size:10.5px; padding:2px 8px; border-radius:100px; background:var(--paper-dim); color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
   .no-due{color:#B9B3A2; font-style:italic;}
+  .add-row-btn{width:100%; background:var(--paper); border:1px dashed var(--line); border-top:none; border-radius:0 0 var(--radius) var(--radius); padding:12px; cursor:pointer; color:var(--ink-soft); font-size:13px; font-weight:500;}
+  .add-row-btn:hover{background:var(--paper-dim); color:var(--ink);}
   .empty-state{background:var(--paper); border:1px dashed var(--line); border-radius:var(--radius); padding:44px 30px; text-align:center; color:var(--ink-soft); font-size:13.5px;}
   .empty-state strong{display:block; color:var(--ink); font-size:15px; margin-bottom:6px; font-family:'Space Grotesk',sans-serif;}
 
+  /* modals (shared) */
   .overlay{position:fixed; inset:0; background:rgba(31,35,40,.45); display:none; align-items:center; justify-content:center; padding:20px; z-index:50;}
   .overlay.show{display:flex;}
-  .modal{background:var(--paper); border-radius:12px; max-width:380px; width:100%; box-shadow:0 20px 50px -12px rgba(0,0,0,.35); overflow:hidden;}
+  .modal{background:var(--paper); border-radius:12px; max-width:400px; width:100%; box-shadow:0 20px 50px -12px rgba(0,0,0,.35); overflow:hidden; color:var(--ink);}
   .modal-head{padding:16px 20px; border-bottom:1px solid var(--line-soft); display:flex; justify-content:space-between; align-items:center;}
   .modal-head h3{margin:0; font-size:15px;}
   .modal-close{background:none; border:none; font-size:18px; cursor:pointer; color:var(--ink-soft); line-height:1;}
-  .modal-body{padding:8px 20px 18px; max-height:60vh; overflow-y:auto;}
+  .modal-body{padding:16px 20px 20px; max-height:70vh; overflow-y:auto;}
   .modal-item{padding:12px 0; border-top:1px solid var(--line-soft);}
   .modal-item:first-child{border-top:none;}
   .modal-item-course{display:flex; align-items:center; gap:6px; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:4px;}
   .modal-item-name{font-size:14px; font-weight:600; margin-bottom:3px;}
   .modal-item-meta{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
+  .modal-section-label{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin:14px 0 4px;}
+  .modal-section-label:first-child{margin-top:0;}
+
+  .field-group{margin-bottom:14px;}
+  .field-label{font-size:11.5px; font-weight:600; color:var(--ink-soft); margin-bottom:5px; display:block;}
+  .field-input, .field-select{width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--paper-dim); color:var(--ink); font-size:13.5px;}
+  .field-row{display:flex; gap:10px;}
+  .field-row .field-group{flex:1;}
+  .field-hint{font-size:11px; color:var(--ink-soft); margin-top:5px;}
+  .field-error{font-size:11px; color:var(--red); margin-top:5px; display:none;}
+  .field-error.show{display:block;}
+  .color-preview-row{display:flex; align-items:center; gap:10px;}
+  .color-swatch{width:32px; height:32px; border-radius:7px; border:1px solid var(--line); flex:none;}
+  .modal-submit{width:100%; background:var(--ink); color:var(--paper); border:none; padding:11px; border-radius:7px; font-weight:600; cursor:pointer; font-size:13.5px; margin-top:6px;}
+  .modal-submit:disabled{background:var(--line); color:var(--ink-soft); cursor:default;}
+  .modal-submit.danger{background:var(--red);}
+  .modal-submit.danger:disabled{background:var(--line); color:var(--ink-soft);}
+  .warning-text{font-size:13px; color:var(--ink-soft); line-height:1.5; margin-bottom:14px;}
+  .warning-text strong{color:var(--ink);}
 </style>
 </head>
 <body>
@@ -201,7 +218,7 @@
 <div class="shell">
   <aside class="sidebar">
     <div class="sb-brand">Fall 2026 &middot; EICC</div>
-    <h2 class="sb-title">Production<br>Traveler</h2>
+    <h2 class="sb-title">EICC Classes</h2>
 
     <div class="sb-section">
       <div class="sb-label"><span>This Week</span><span class="sb-range" id="thisWeekRange"></span></div>
@@ -219,13 +236,14 @@
         <div class="cal-controls">
           <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
           <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
-          <button class="cal-size-btn active" id="calSize25" data-size="25">25%</button>
-          <button class="cal-size-btn" id="calSize50" data-size="50">50%</button>
-          <button class="cal-size-btn" id="calSize75" data-size="75">75%</button>
         </div>
       </div>
       <div class="cal-grid" id="calDowRow"></div>
       <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-key">
+        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
+        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
+      </div>
       <div class="legend" id="legend"></div>
     </div>
 
@@ -235,12 +253,12 @@
         <button class="info-btn" id="infoToggle">i</button>
         <div class="info-bubble" id="infoBubble">
           <div class="ib-title">Command syntax</div>
-          <code>add assignment "Name" course grd463 start 09/20/2026 end 09/25/2026 points 25</code><br><br>
+          <code>add assignment "Name" course grd463 points 25 start 09/20/2026 end 09/25/2026</code><br><br>
           <code>delete project "Name" course grd430</code><br><br>
-          <code>change discussion "Name" course grt237 end 10/01/2026</code><br><br>
+          <code>change discussion "Name" course grt237 points 10 end 10/01/2026</code><br><br>
           <code>complete "Name" course grd463</code> / <code>uncomplete ...</code><br><br>
           Types: <code>project</code> / <code>assignment</code> / <code>discussion</code><br>
-          Courses: <code>grd463</code> <code>grd430</code> <code>grt237</code> <code>grt245</code>
+          Courses are whatever's on each course's card (e.g. <code>grd463</code>)
         </div>
       </div>
       <div class="cmd-panel" id="cmdPanel" style="display:none;">
@@ -249,13 +267,13 @@
           <button id="cmdChoiceCal">Calendar</button>
         </div>
         <div id="cmdNoteArea" style="display:none;">
-          <textarea id="cmdNoteText" style="width:100%; min-height:50px; margin-top:8px; background:rgba(237,238,233,.06); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; border-radius:6px; padding:7px 9px; font-size:12px; font-family:inherit;" placeholder="Type your note..."></textarea>
-          <button class="sb-mini-btn" id="cmdNoteSubmit" style="margin-top:6px;">Queue note</button>
+          <textarea id="cmdNoteText" placeholder="Type your note..."></textarea>
+          <button class="sb-mini-btn" id="cmdNoteSubmit">Queue note</button>
         </div>
         <div id="cmdCalArea" style="display:none;">
           <div class="cmd-line-wrap" style="margin-top:8px;">
             <span>&gt;</span>
-            <input id="cmdLineInput" type="text" placeholder='add assignment "Name" course grd463 end 09/25/2026'>
+            <input id="cmdLineInput" type="text" placeholder='add assignment "Name" course grd463 points 25 end 09/25/2026'>
           </div>
           <div class="cmd-error" id="cmdError"></div>
           <div class="cmd-hint">Enter to queue. Tap (i) for full syntax.</div>
@@ -282,16 +300,19 @@
     <section class="notes-panel">
       <div class="notes-panel-head">
         <h2>Notes</h2>
-        <button class="sb-mini-btn" id="noteAddToggle" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink);">+ Add note</button>
+        <button class="sb-mini-btn" id="noteAddToggle" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); margin-top:0;">+ Add note</button>
       </div>
       <div class="notes-panel-add" id="noteAddRow" style="display:none;">
         <textarea id="noteAddText" placeholder="Type a note..."></textarea>
-        <button class="sb-mini-btn" id="noteAddSubmit" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink);">Add</button>
+        <button class="sb-mini-btn" id="noteAddSubmit" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); margin-top:0;">Add</button>
       </div>
       <div class="notes-panel-list" id="notesList"></div>
     </section>
 
     <div class="card-grid" id="homeView"></div>
+    <div class="add-course-row" id="homeAddRow">
+      <button class="add-course-btn" id="addCourseBtn" title="Add a course">+</button>
+    </div>
 
     <div class="detail" id="detailView">
       <div class="detail-head">
@@ -306,41 +327,109 @@
   </main>
 </div>
 
+<!-- day modal -->
 <div class="overlay" id="overlay">
   <div class="modal">
-    <div class="modal-head"><h3 id="modalDate"></h3><button class="modal-close" id="modalClose">&times;</button></div>
+    <div class="modal-head"><h3 id="modalDate"></h3><button class="modal-close" onclick="closeOverlay('overlay')">&times;</button></div>
     <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
-<div class="cal-overlay" id="calOverlay">
-  <div class="cal-panel" id="calPanel">
-    <div class="cal-head" style="margin-bottom:16px;">
-      <div class="cal-month" id="calPanelMonthLabel" style="font-size:18px;"></div>
-      <div class="cal-controls">
-        <button class="cal-nav" id="calPanelPrev">&#8249;</button>
-        <button class="cal-nav" id="calPanelNext">&#8250;</button>
-        <button class="cal-panel-close" id="calPanelClose">&times;</button>
+<!-- add course modal -->
+<div class="overlay" id="addCourseOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Add a course</h3><button class="modal-close" onclick="closeOverlay('addCourseOverlay')">&times;</button></div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label">Course code</label>
+        <input class="field-input mono" id="newCourseCode" placeholder="XXX-000" maxlength="7">
+        <div class="field-error" id="newCourseCodeError">Must be exactly 3 letters, a dash, and 3 numbers — e.g. GRT-101.</div>
       </div>
+      <div class="field-group">
+        <label class="field-label">Course name</label>
+        <input class="field-input" id="newCourseName" placeholder="e.g. Web Design I">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Description</label>
+        <input class="field-input" id="newCourseDesc" placeholder="One line about the course">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Color</label>
+        <div class="color-preview-row">
+          <div class="color-swatch" id="newCourseSwatch"></div>
+          <button class="sb-mini-btn" id="newCourseReroll" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); margin-top:0;">New color</button>
+        </div>
+      </div>
+      <button class="modal-submit" id="newCourseSubmit" disabled>Create course</button>
     </div>
-    <div class="cal-grid" id="calPanelDowRow"></div>
-    <div class="cal-grid" id="calPanelGrid"></div>
-    <div class="legend" id="calPanelLegend"></div>
+  </div>
+</div>
+
+<!-- delete course modal -->
+<div class="overlay" id="deleteCourseOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Delete course</h3><button class="modal-close" onclick="closeOverlay('deleteCourseOverlay')">&times;</button></div>
+    <div class="modal-body">
+      <p class="warning-text">This removes <strong id="deleteCourseTarget"></strong> and every assignment in it, once you Save. Type the phrase below exactly to confirm.</p>
+      <div class="field-group">
+        <label class="field-label">Type: I want to delete this course</label>
+        <input class="field-input" id="deleteCourseConfirmText" placeholder="I want to delete this course">
+      </div>
+      <button class="modal-submit danger" id="deleteCourseSubmit" disabled>Confirm delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- add assignment modal -->
+<div class="overlay" id="addAssignOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Add item</h3><button class="modal-close" onclick="closeOverlay('addAssignOverlay')">&times;</button></div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label">Name</label>
+        <input class="field-input" id="newAssignName" placeholder="e.g. Project 5 Research">
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Type</label>
+          <select class="field-select" id="newAssignType">
+            <option value="project">Project</option>
+            <option value="assignment">Assignment</option>
+            <option value="discussion">Discussion</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Points</label>
+          <input class="field-input" id="newAssignPoints" type="number" min="0" placeholder="25">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Available date</label>
+          <input class="field-input" id="newAssignAvail" type="date">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Due date</label>
+          <input class="field-input" id="newAssignDue" type="date">
+        </div>
+      </div>
+      <button class="modal-submit" id="newAssignSubmit">Add item</button>
+    </div>
   </div>
 </div>
 
 <script>
 /* ============ CONFIG ============ */
-// EDIT THIS before deploying: "your-github-username/your-repo-name"
 const GITHUB_REPO = "pntlsta/eicc-jcorales";
 const DATA_URL = "data/assignments.json";
 const NOTES_URL = "data/notes.json";
 
 /* ============ STATE ============ */
 let state = { courses: [], assignments: [], notes: [], pending: [] };
-let calYear, calMonth, panelYear, panelMonth;
-let calSize = '25';
-let cmdMode = null; // 'note' | 'cal'
+let calYear, calMonth;
+let sortStates = {}; // courseId -> {key, dir}
+let activeAssignCourse = null;
+let cmdMode = null;
 
 const courseById = () => Object.fromEntries(state.courses.map(c=>[c.id,c]));
 
@@ -362,9 +451,9 @@ async function loadData(){
   }
   const savedPending = localStorage.getItem('tracker_pending');
   if(savedPending){ try{ state.pending = JSON.parse(savedPending); }catch(e){} }
+  autoFillAvailabilityNotes();
   renderAll();
 }
-
 function savePendingDraft(){ localStorage.setItem('tracker_pending', JSON.stringify(state.pending)); }
 
 /* ============ DATE HELPERS ============ */
@@ -372,6 +461,7 @@ function toDate(iso){ const [y,m,d] = iso.split('-').map(Number); return new Dat
 function isoOf(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function fmtShort(iso){ const d=toDate(iso); return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}); }
 function fmtLong(iso){ const d=toDate(iso); return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}); }
+function isoToMMDDYYYY(iso){ const [y,m,d]=iso.split('-'); return `${m}/${d}/${y}`; }
 function weekBounds(refDate, offsetWeeks=0){
   const d = new Date(refDate); d.setDate(d.getDate() + offsetWeeks*7);
   const day = d.getDay(); const diffToMon = (day===0 ? -6 : 1-day);
@@ -381,6 +471,7 @@ function weekBounds(refDate, offsetWeeks=0){
 }
 function inRange(iso, start, end){ const d = toDate(iso); return d >= start && d <= end; }
 const today = new Date(); today.setHours(0,0,0,0);
+const todayISO = isoOf(today);
 
 function allDatedAssignments(){
   return state.assignments.filter(a=>a.due).sort((a,b)=> a.due.localeCompare(b.due));
@@ -402,6 +493,7 @@ function renderWeekSection(offset, listElId, rangeElId){
   }
   for(const item of items){
     const course = cMap[item.course];
+    if(!course) continue;
     const row = document.createElement('div');
     row.className = 'due-item';
     row.innerHTML = `
@@ -414,115 +506,101 @@ function renderWeekSection(offset, listElId, rangeElId){
   }
 }
 
-/* ============ RENDER: CALENDAR (shared for mini + panel) ============ */
-function buildCalendarDOM(year, month, {monthLabelEl, dowEl, gridEl, legendEl, big}){
-  monthLabelEl.textContent = new Date(year, month, 1).toLocaleDateString('en-US',{month:'long', year:'numeric'});
+/* ============ RENDER: CALENDAR ============ */
+function renderMiniCalendar(){
+  const monthLabelEl = document.getElementById('calMonthLabel');
+  const dowEl = document.getElementById('calDowRow');
+  const gridEl = document.getElementById('calGrid');
+  const legendEl = document.getElementById('legend');
+
+  monthLabelEl.textContent = new Date(calYear, calMonth, 1).toLocaleDateString('en-US',{month:'long', year:'numeric'});
   dowEl.innerHTML = ['S','M','T','W','T','F','S'].map(d=>`<div class="cal-dow">${d}</div>`).join('');
   gridEl.innerHTML = '';
+
   const cMap = courseById();
-  const firstDay = new Date(year, month, 1);
+  const firstDay = new Date(calYear, calMonth, 1);
   const startPad = firstDay.getDay();
-  const daysInMonth = new Date(year, month+1, 0).getDate();
-  const dated = allDatedAssignments().filter(a=>a.published);
-  const byDay = {};
-  for(const a of dated){
-    const d = toDate(a.due);
-    if(d.getFullYear()===year && d.getMonth()===month){
-      byDay[d.getDate()] = byDay[d.getDate()] || [];
-      byDay[d.getDate()].push(a);
+  const daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+
+  const dueByDay = {}, availByDay = {};
+  for(const a of state.assignments){
+    if(!a.published) continue;
+    if(a.due){
+      const d = toDate(a.due);
+      if(d.getFullYear()===calYear && d.getMonth()===calMonth){ (dueByDay[d.getDate()]=dueByDay[d.getDate()]||[]).push(a); }
+    }
+    if(a.available){
+      const d = toDate(a.available);
+      if(d.getFullYear()===calYear && d.getMonth()===calMonth){ (availByDay[d.getDate()]=availByDay[d.getDate()]||[]).push(a); }
     }
   }
+
   for(let i=0;i<startPad;i++){ const pad=document.createElement('div'); pad.className='cal-cell pad'; gridEl.appendChild(pad); }
+
   for(let day=1; day<=daysInMonth; day++){
     const cell = document.createElement('div');
-    const dueList = byDay[day];
-    const isToday = year===today.getFullYear() && month===today.getMonth() && day===today.getDate();
-    cell.className = 'cal-cell' + (dueList ? ' has-due' : '') + (isToday ? ' today' : '');
+    const dueList = dueByDay[day] || [];
+    const availList = availByDay[day] || [];
+    const isToday = calYear===today.getFullYear() && calMonth===today.getMonth() && day===today.getDate();
+    const hasAny = dueList.length || availList.length;
+
+    cell.className = 'cal-cell' + (hasAny ? ' clickable' : '');
     cell.innerHTML = `<span>${day}</span>`;
-    if(dueList){
-      const uniqueCourses = [...new Set(dueList.map(a=>a.course))];
+
+    const shadows = [];
+    if(dueList.length) shadows.push('inset 0 0 0 2px rgba(217,83,79,.9)');
+    if(isToday) shadows.push('0 0 0 3px rgba(237,238,233,.35)', '0 3px 8px rgba(0,0,0,.4)');
+    if(shadows.length) cell.style.boxShadow = shadows.join(', ');
+
+    if(dueList.length && availList.length){
+      cell.style.background = 'linear-gradient(135deg, rgba(62,142,92,.5) 50%, rgba(217,83,79,.35) 50%)';
+    } else if(availList.length){
+      cell.style.background = 'rgba(62,142,92,.4)';
+    }
+
+    if(hasAny){
+      const uniqueCourses = [...new Set([...dueList, ...availList].map(a=>a.course))];
       const dotsWrap = document.createElement('div');
       dotsWrap.className = 'cal-dots';
       uniqueCourses.slice(0,4).forEach(cid=>{
+        if(!cMap[cid]) return;
         const dot = document.createElement('span'); dot.style.background = cMap[cid].hex; dotsWrap.appendChild(dot);
       });
       cell.appendChild(dotsWrap);
-      cell.addEventListener('click', ()=> openDayModal(isoOf(new Date(year,month,day)), dueList));
+      cell.addEventListener('click', ()=> openDayModal(isoOf(new Date(calYear,calMonth,day)), dueList, availList));
     }
     gridEl.appendChild(cell);
   }
-  if(legendEl){
-    legendEl.innerHTML = state.courses.map(c=>`
-      <div class="legend-row"><span class="swatch-dot" style="background:${c.hex}"></span>${c.code} — ${c.name}</div>
-    `).join('');
-  }
-}
 
-function renderMiniCalendar(){
-  buildCalendarDOM(calYear, calMonth, {
-    monthLabelEl: document.getElementById('calMonthLabel'),
-    dowEl: document.getElementById('calDowRow'),
-    gridEl: document.getElementById('calGrid'),
-    legendEl: document.getElementById('legend'),
-  });
+  legendEl.innerHTML = state.courses.map(c=>`
+    <div class="legend-row"><span class="swatch-dot" style="background:${c.hex}"></span>${c.code} — ${c.name}</div>
+  `).join('');
 }
-function renderPanelCalendar(){
-  buildCalendarDOM(panelYear, panelMonth, {
-    monthLabelEl: document.getElementById('calPanelMonthLabel'),
-    dowEl: document.getElementById('calPanelDowRow'),
-    gridEl: document.getElementById('calPanelGrid'),
-    legendEl: document.getElementById('calPanelLegend'),
-  });
-}
-
 document.getElementById('calPrev').addEventListener('click', ()=>{ calMonth--; if(calMonth<0){calMonth=11; calYear--;} renderMiniCalendar(); });
 document.getElementById('calNext').addEventListener('click', ()=>{ calMonth++; if(calMonth>11){calMonth=0; calYear++;} renderMiniCalendar(); });
-document.getElementById('calPanelPrev').addEventListener('click', ()=>{ panelMonth--; if(panelMonth<0){panelMonth=11; panelYear--;} renderPanelCalendar(); });
-document.getElementById('calPanelNext').addEventListener('click', ()=>{ panelMonth++; if(panelMonth>11){panelMonth=0; panelYear++;} renderPanelCalendar(); });
 
-/* calendar size toggle */
-['25','50','75'].forEach(sz=>{
-  document.getElementById('calSize'+sz).addEventListener('click', ()=>{
-    calSize = sz;
-    document.querySelectorAll('.cal-size-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById('calSize'+sz).classList.add('active');
-    if(sz === '25'){
-      document.getElementById('calOverlay').classList.remove('show');
-    } else {
-      panelYear = calYear; panelMonth = calMonth;
-      renderPanelCalendar();
-      const panel = document.getElementById('calPanel');
-      panel.classList.remove('size-50','size-75');
-      panel.classList.add('size-'+sz);
-      document.getElementById('calOverlay').classList.add('show');
-    }
-  });
-});
-document.getElementById('calPanelClose').addEventListener('click', ()=>{
-  document.getElementById('calOverlay').classList.remove('show');
-  calSize = '25';
-  document.querySelectorAll('.cal-size-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('calSize25').classList.add('active');
-});
-document.getElementById('calOverlay').addEventListener('click', e=>{ if(e.target.id==='calOverlay') document.getElementById('calPanelClose').click(); });
-
-/* ============ MODAL (day detail) ============ */
-function openDayModal(iso, items){
+/* ============ DAY MODAL ============ */
+function openDayModal(iso, dueList, availList){
   document.getElementById('modalDate').textContent = fmtLong(iso);
   const cMap = courseById();
-  document.getElementById('modalBody').innerHTML = items.map(item=>{
+  const renderItem = (item) => {
     const course = cMap[item.course];
+    if(!course) return '';
     return `
       <div class="modal-item">
         <div class="modal-item-course"><span class="swatch-dot" style="background:${course.hex}"></span>${course.code} — ${course.name}</div>
         <div class="modal-item-name">${item.completed ? '<s>'+item.name+'</s>' : item.name}</div>
-        <div class="modal-item-meta">${item.type}${item.points!=null ? ' · '+item.points+' pts' : ''} · due ${fmtShort(item.due)}</div>
+        <div class="modal-item-meta">${item.type}${item.points!=null ? ' · '+item.points+' pts' : ''}</div>
       </div>`;
-  }).join('');
+  };
+  let html = '';
+  if(dueList.length){ html += `<div class="modal-section-label">Due</div>` + dueList.map(renderItem).join(''); }
+  if(availList.length){ html += `<div class="modal-section-label">Available</div>` + availList.map(renderItem).join(''); }
+  document.getElementById('modalBody').innerHTML = html;
   document.getElementById('overlay').classList.add('show');
 }
-document.getElementById('modalClose').addEventListener('click', ()=> document.getElementById('overlay').classList.remove('show'));
-document.getElementById('overlay').addEventListener('click', e=>{ if(e.target.id==='overlay') document.getElementById('overlay').classList.remove('show'); });
+function closeOverlay(id){ document.getElementById(id).classList.remove('show'); }
+document.getElementById('overlay').addEventListener('click', e=>{ if(e.target.id==='overlay') closeOverlay('overlay'); });
 
 /* ============ NOTES ============ */
 function renderNotes(){
@@ -558,7 +636,7 @@ document.getElementById('noteAddSubmit').addEventListener('click', ()=>{
 function addNoteLocal(text){
   const maxId = state.notes.reduce((mx,n)=>Math.max(mx,n.id),0);
   const id = maxId + 1;
-  state.notes.push({id, text, created: isoOf(today), _pending:true});
+  state.notes.push({id, text, created: todayISO, _pending:true});
   queueCommand(`note add "${escapeQuotes(text)}"`);
   renderNotes();
 }
@@ -579,6 +657,20 @@ function deleteNote(id){
 }
 function escapeQuotes(s){ return s.replace(/"/g,"'"); }
 
+function autoFillAvailabilityNotes(){
+  const cMap = courseById();
+  const coursesToday = new Set(
+    state.assignments.filter(a=>a.published && a.available===todayISO).map(a=>a.course)
+  );
+  coursesToday.forEach(cid=>{
+    const course = cMap[cid];
+    if(!course) return;
+    const text = `ANNOUNCE ${course.code} AVAILABILITY`;
+    const already = state.notes.some(n=>n.text === text);
+    if(!already) addNoteLocal(text);
+  });
+}
+
 /* ============ HOME CARDS ============ */
 function renderHome(){
   const grid = document.getElementById('homeView');
@@ -586,28 +678,134 @@ function renderHome(){
     const rows = state.assignments.filter(a=>a.course===c.id);
     const graded = rows.filter(r=>r.due).length;
     return `
-      <button class="course-card" onclick="showDetail('${c.id}')">
-        <div class="card-ink" style="background:${c.hex}"></div>
-        <div class="card-body">
-          <span class="card-code">${c.code}</span>
-          <h3 class="card-title">${c.name}</h3>
-          <p class="card-desc">${c.desc}</p>
-          <div class="card-stats">
-            <div><div class="stat-num">${rows.length}</div><div class="stat-label">Items</div></div>
-            <div><div class="stat-num">${graded}</div><div class="stat-label">Dated</div></div>
+      <div class="course-card">
+        <button class="card-hit" onclick="showDetail('${c.id}')">
+          <div class="card-ink" style="background:${c.hex}"></div>
+          <div class="card-body">
+            <span class="card-code">${c.code}</span>
+            <h3 class="card-title">${c.name}</h3>
+            <p class="card-desc">${c.desc||''}</p>
+            <div class="card-stats">
+              <div><div class="stat-num">${rows.length}</div><div class="stat-label">Items</div></div>
+              <div><div class="stat-num">${graded}</div><div class="stat-label">Dated</div></div>
+            </div>
           </div>
+        </button>
+        <div class="card-footer">
+          <button class="card-delete-btn" onclick="event.stopPropagation(); openDeleteCourseModal('${c.id}')">DELETE</button>
         </div>
-      </button>`;
+      </div>`;
   }).join('');
 }
 
-/* ============ COURSE DETAIL (with mark complete) ============ */
+/* ---- add course ---- */
+function randomHex(){
+  const h = Math.floor(Math.random()*360);
+  const s = 45 + Math.floor(Math.random()*15);
+  const l = 38 + Math.floor(Math.random()*8);
+  const a = s/100, k = n => (n + h/30) % 12;
+  const f = n => l/100 - a*Math.min(l/100, 1-l/100)*Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n),1)));
+  const toHex = x => Math.round(255*x).toString(16).padStart(2,'0');
+  return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
+}
+let pendingNewCourseColor = randomHex();
+function refreshCourseSwatch(){
+  pendingNewCourseColor = randomHex();
+  document.getElementById('newCourseSwatch').style.background = pendingNewCourseColor;
+}
+document.getElementById('addCourseBtn').addEventListener('click', ()=>{
+  document.getElementById('newCourseCode').value = '';
+  document.getElementById('newCourseName').value = '';
+  document.getElementById('newCourseDesc').value = '';
+  document.getElementById('newCourseCodeError').classList.remove('show');
+  refreshCourseSwatch();
+  validateCourseForm();
+  document.getElementById('addCourseOverlay').classList.add('show');
+});
+document.getElementById('newCourseReroll').addEventListener('click', refreshCourseSwatch);
+function validateCourseForm(){
+  const code = document.getElementById('newCourseCode').value.trim();
+  const name = document.getElementById('newCourseName').value.trim();
+  const valid = /^[A-Za-z]{3}-\d{3}$/.test(code);
+  document.getElementById('newCourseCodeError').classList.toggle('show', code.length>0 && !valid);
+  document.getElementById('newCourseSubmit').disabled = !(valid && name);
+}
+document.getElementById('newCourseCode').addEventListener('input', validateCourseForm);
+document.getElementById('newCourseName').addEventListener('input', validateCourseForm);
+document.getElementById('newCourseSubmit').addEventListener('click', ()=>{
+  const code = document.getElementById('newCourseCode').value.trim().toUpperCase();
+  const name = document.getElementById('newCourseName').value.trim();
+  const desc = document.getElementById('newCourseDesc').value.trim();
+  if(!/^[A-Z]{3}-\d{3}$/.test(code) || !name) return;
+  const id = code.toLowerCase().replace(/-/g,'');
+  if(state.courses.some(c=>c.id===id)){ alert('That course code already exists.'); return; }
+  state.courses.push({id, code, name, desc, hex: pendingNewCourseColor});
+  queueCommand(`add course "${code}" "${escapeQuotes(name)}" "${escapeQuotes(desc)}" color ${pendingNewCourseColor}`);
+  closeOverlay('addCourseOverlay');
+  renderAll();
+});
+
+/* ---- delete course ---- */
+let pendingDeleteCourseId = null;
+function openDeleteCourseModal(courseId){
+  const course = courseById()[courseId];
+  if(!course) return;
+  pendingDeleteCourseId = courseId;
+  document.getElementById('deleteCourseTarget').textContent = `${course.code} — ${course.name}`;
+  document.getElementById('deleteCourseConfirmText').value = '';
+  document.getElementById('deleteCourseSubmit').disabled = true;
+  document.getElementById('deleteCourseOverlay').classList.add('show');
+}
+document.getElementById('deleteCourseConfirmText').addEventListener('input', (e)=>{
+  document.getElementById('deleteCourseSubmit').disabled = e.target.value !== 'I want to delete this course';
+});
+document.getElementById('deleteCourseSubmit').addEventListener('click', ()=>{
+  if(!pendingDeleteCourseId) return;
+  const cid = pendingDeleteCourseId;
+  state.assignments = state.assignments.filter(a=>a.course!==cid);
+  state.courses = state.courses.filter(c=>c.id!==cid);
+  queueCommand(`delete course ${cid}`);
+  closeOverlay('deleteCourseOverlay');
+  pendingDeleteCourseId = null;
+  document.getElementById('backBtn').click();
+  renderAll();
+});
+
+/* ============ COURSE DETAIL ============ */
+function sortKeyClick(courseId, key){
+  const cur = sortStates[courseId] || {key:'due', dir:'asc'};
+  if(cur.key === key){ cur.dir = cur.dir === 'asc' ? 'desc' : 'asc'; }
+  else { cur.key = key; cur.dir = key === 'points' ? 'desc' : 'asc'; }
+  sortStates[courseId] = cur;
+  showDetail(courseId);
+}
+function sortRows(rows, key, dir){
+  const arr = [...rows];
+  arr.sort((a,b)=>{
+    let av = a[key], bv = b[key];
+    const aNull = av===null||av===undefined, bNull = bv===null||bv===undefined;
+    if(aNull && bNull) return 0;
+    if(aNull) return 1;
+    if(bNull) return -1;
+    let res = (key==='points') ? (av-bv) : String(av).localeCompare(String(bv));
+    return dir==='asc' ? res : -res;
+  });
+  return arr;
+}
+function arrowFor(courseId, key){
+  const s = sortStates[courseId];
+  if(!s || s.key !== key) return '';
+  return `<span class="arrow">${s.dir==='asc' ? '&#9650;' : '&#9660;'}</span>`;
+}
+
 function showDetail(courseId){
   const cMap = courseById();
   const course = cMap[courseId];
-  const rows = state.assignments.filter(a=>a.course===courseId);
+  if(!course) return;
+  activeAssignCourse = courseId;
 
   document.getElementById('homeView').style.display = 'none';
+  document.getElementById('homeAddRow').style.display = 'none';
   document.getElementById('detailView').style.display = 'block';
   document.getElementById('backBtn').style.display = 'inline-flex';
   document.getElementById('pageTitle').textContent = course.name;
@@ -616,15 +814,27 @@ function showDetail(courseId){
   document.getElementById('detailCode').textContent = course.code;
   document.getElementById('detailTitle').textContent = course.name;
 
+  const sort = sortStates[courseId] || {key:'due', dir:'asc'};
+  sortStates[courseId] = sort;
+  let rows = state.assignments.filter(a=>a.course===courseId);
+  rows = sortRows(rows, sort.key, sort.dir);
+
   const body = document.getElementById('detailBody');
   if(rows.length === 0){
-    body.innerHTML = `<div class="empty-state"><strong>Nothing loaded yet</strong>Assignment data for ${course.name} hasn't been added.</div>`;
+    body.innerHTML = `<div class="empty-state"><strong>Nothing here yet</strong>Click "+ Add item" below to start building this course's schedule.</div>
+      <button class="add-row-btn" style="border-radius:var(--radius); margin-top:10px; border-style:dashed;" onclick="openAddAssignModal('${courseId}')">+ Add item</button>`;
     return;
   }
   body.innerHTML = `
     <table class="assign-table">
       <thead><tr>
-        <th class="chk-cell"></th><th>Assignment</th><th>Type</th><th class="mono">Points</th><th class="mono">Available</th><th class="mono">Due</th>
+        <th class="chk-cell"></th>
+        <th class="sortable" onclick="sortKeyClick('${courseId}','name')">Assignment ${arrowFor(courseId,'name')}</th>
+        <th class="sortable" onclick="sortKeyClick('${courseId}','type')">Type ${arrowFor(courseId,'type')}</th>
+        <th class="sortable mono" onclick="sortKeyClick('${courseId}','points')">Points ${arrowFor(courseId,'points')}</th>
+        <th class="sortable mono" onclick="sortKeyClick('${courseId}','available')">Available ${arrowFor(courseId,'available')}</th>
+        <th class="sortable mono" onclick="sortKeyClick('${courseId}','due')">Due ${arrowFor(courseId,'due')}</th>
+        <th class="del-cell"></th>
       </tr></thead>
       <tbody>
         ${rows.map(r=>`
@@ -635,22 +845,80 @@ function showDetail(courseId){
             <td class="mono">${r.points!=null ? r.points : '—'}</td>
             <td class="mono">${r.available ? fmtShort(r.available) : '<span class="no-due">—</span>'}</td>
             <td class="mono">${r.due ? fmtShort(r.due) : '<span class="no-due">no due date</span>'}</td>
+            <td class="del-cell"><button class="row-del-btn" onclick="deleteAssignRow('${r.id}')">&times;</button></td>
           </tr>`).join('')}
       </tbody>
-    </table>`;
+    </table>
+    <button class="add-row-btn" onclick="openAddAssignModal('${courseId}')">+ Add item</button>`;
 }
+
 function toggleComplete(id, checked){
   const item = state.assignments.find(a=>a.id===id);
   if(!item) return;
   item.completed = checked;
-  const course = courseById()[item.course];
   queueCommand(`${checked ? 'complete' : 'uncomplete'} "${escapeQuotes(item.name)}" course ${item.course}`);
-  document.querySelector(`tr[data-id="${id}"]`).classList.toggle('is-complete', checked);
+  document.querySelector(`tr[data-id="${id}"]`)?.classList.toggle('is-complete', checked);
   renderWeekSection(0, 'thisWeekList', 'thisWeekRange');
   renderWeekSection(1, 'nextWeekList', 'nextWeekRange');
 }
+function deleteAssignRow(id){
+  const item = state.assignments.find(a=>a.id===id);
+  if(!item) return;
+  if(!confirm(`Delete "${item.name}"? This can't be undone once saved.`)) return;
+  state.assignments = state.assignments.filter(a=>a.id!==id);
+  queueCommand(`delete ${item.type.toLowerCase()} "${escapeQuotes(item.name)}" course ${item.course}`);
+  showDetail(item.course);
+  renderWeekSection(0, 'thisWeekList', 'thisWeekRange');
+  renderWeekSection(1, 'nextWeekList', 'nextWeekRange');
+  renderMiniCalendar();
+  renderHome();
+}
+
+/* ---- add assignment modal ---- */
+function openAddAssignModal(courseId){
+  activeAssignCourse = courseId;
+  document.getElementById('newAssignName').value = '';
+  document.getElementById('newAssignType').value = 'assignment';
+  document.getElementById('newAssignPoints').value = '';
+  document.getElementById('newAssignAvail').value = '';
+  document.getElementById('newAssignDue').value = '';
+  document.getElementById('addAssignOverlay').classList.add('show');
+}
+document.getElementById('newAssignSubmit').addEventListener('click', ()=>{
+  const name = document.getElementById('newAssignName').value.trim();
+  if(!name || !activeAssignCourse) return;
+  const type = document.getElementById('newAssignType').value;
+  const pointsRaw = document.getElementById('newAssignPoints').value;
+  const points = pointsRaw ? parseInt(pointsRaw,10) : null;
+  const availISO = document.getElementById('newAssignAvail').value || null;
+  const dueISO = document.getElementById('newAssignDue').value || null;
+  const cid = activeAssignCourse;
+
+  const nums = state.assignments.filter(a=>a.course===cid).map(a=>parseInt((a.id.match(/-(\d+)$/)||[])[1]||0,10));
+  const nextNum = (nums.length ? Math.max(...nums) : 0) + 1;
+  state.assignments.push({
+    id: `${cid}-${nextNum}`, course: cid, name,
+    points, type: type[0].toUpperCase()+type.slice(1),
+    due: dueISO, available: availISO, published: true, completed: false,
+  });
+
+  let cmd = `add ${type} "${escapeQuotes(name)}" course ${cid}`;
+  if(points!=null) cmd += ` points ${points}`;
+  if(availISO) cmd += ` start ${isoToMMDDYYYY(availISO)}`;
+  if(dueISO) cmd += ` end ${isoToMMDDYYYY(dueISO)}`;
+  queueCommand(cmd);
+
+  closeOverlay('addAssignOverlay');
+  showDetail(cid);
+  renderWeekSection(0, 'thisWeekList', 'thisWeekRange');
+  renderWeekSection(1, 'nextWeekList', 'nextWeekRange');
+  renderMiniCalendar();
+  renderHome();
+});
+
 document.getElementById('backBtn').addEventListener('click', ()=>{
   document.getElementById('homeView').style.display = 'grid';
+  document.getElementById('homeAddRow').style.display = 'flex';
   document.getElementById('detailView').style.display = 'none';
   document.getElementById('backBtn').style.display = 'none';
   document.getElementById('pageTitle').textContent = 'Your Courses';
@@ -705,24 +973,21 @@ document.getElementById('cmdNoteSubmit').addEventListener('click', ()=>{
 });
 
 const CMD_PATTERNS = [
-  /^add\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+points\s+(\d+))?\s*$/i,
+  /^add\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+points\s+(\d+))?(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?\s*$/i,
   /^delete\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)\s*$/i,
-  /^change\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+points\s+(\d+))?\s*$/i,
+  /^change\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+points\s+(\d+))?(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?\s*$/i,
   /^(complete|uncomplete)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)\s*$/i,
+  /^add\s+course\s+"([A-Za-z]{3}-\d{3})"\s+"([^"]+)"\s+"([^"]*)"\s+color\s+(#[0-9a-fA-F]{6})\s*$/i,
+  /^delete\s+course\s+([a-z0-9-]+)\s*$/i,
 ];
-function validateCmd(line){
-  return CMD_PATTERNS.some(re => re.test(line.trim()));
-}
+function validateCmd(line){ return CMD_PATTERNS.some(re => re.test(line.trim())); }
 document.getElementById('cmdLineInput').addEventListener('keydown', (e)=>{
   if(e.key !== 'Enter') return;
   const input = e.target;
   const line = input.value.trim();
   const errEl = document.getElementById('cmdError');
-  if(!line){ return; }
-  if(!validateCmd(line)){
-    errEl.textContent = "Doesn't match known syntax — tap (i) for examples.";
-    return;
-  }
+  if(!line) return;
+  if(!validateCmd(line)){ errEl.textContent = "Doesn't match known syntax — tap (i) for examples."; return; }
   errEl.textContent = '';
   applyDraftCommand(line);
   queueCommand(line);
@@ -730,36 +995,42 @@ document.getElementById('cmdLineInput').addEventListener('keydown', (e)=>{
   document.getElementById('cmdPanel').style.display = 'none';
   resetCmdPanel();
 });
+function mmddToIso(mmddyyyy){ const [m,d,y]=mmddyyyy.split('/').map(Number); return `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
 function applyDraftCommand(line){
-  // best-effort optimistic UI update; authoritative state comes back after the Action runs
   let m;
   if((m = line.match(CMD_PATTERNS[0]))){
-    const [, type, name, course, start, end, points] = m;
+    const [, type, name, course, points, start, end] = m;
     const cid = course.toLowerCase().replace(/-/g,'');
-    const maxNum = Math.max(0, ...state.assignments.filter(a=>a.course===cid).map(a=>parseInt((a.id.match(/-(\d+)$/)||[])[1]||0,10)));
-    state.assignments.push({id:`${cid}-${maxNum+1}`, course:cid, name, points: points?parseInt(points,10):null, type: type[0].toUpperCase()+type.slice(1), due: end?mmddToIso(end):null, available: start?mmddToIso(start):null, published:true, completed:false});
+    const nums = state.assignments.filter(a=>a.course===cid).map(a=>parseInt((a.id.match(/-(\d+)$/)||[])[1]||0,10));
+    const nextNum = (nums.length ? Math.max(...nums) : 0) + 1;
+    state.assignments.push({id:`${cid}-${nextNum}`, course:cid, name, points: points?parseInt(points,10):null, type: type[0].toUpperCase()+type.slice(1), due: end?mmddToIso(end):null, available: start?mmddToIso(start):null, published:true, completed:false});
   } else if((m = line.match(CMD_PATTERNS[1]))){
     const [, , name, course] = m;
     const cid = course.toLowerCase().replace(/-/g,'');
     state.assignments = state.assignments.filter(a=>!(a.course===cid && a.name.toLowerCase()===name.toLowerCase()));
   } else if((m = line.match(CMD_PATTERNS[2]))){
-    const [, , name, course, start, end, points] = m;
+    const [, , name, course, points, start, end] = m;
     const cid = course.toLowerCase().replace(/-/g,'');
     const item = state.assignments.find(a=>a.course===cid && a.name.toLowerCase()===name.toLowerCase());
-    if(item){ if(start) item.available=mmddToIso(start); if(end) item.due=mmddToIso(end); if(points) item.points=parseInt(points,10); }
+    if(item){ if(points) item.points=parseInt(points,10); if(start) item.available=mmddToIso(start); if(end) item.due=mmddToIso(end); }
   } else if((m = line.match(CMD_PATTERNS[3]))){
     const [, action, name, course] = m;
     const cid = course.toLowerCase().replace(/-/g,'');
     const item = state.assignments.find(a=>a.course===cid && a.name.toLowerCase()===name.toLowerCase());
     if(item) item.completed = action.toLowerCase()==='complete';
+  } else if((m = line.match(CMD_PATTERNS[4]))){
+    const [, code, name, desc, hex] = m;
+    const id = code.toLowerCase().replace(/-/g,'');
+    if(!state.courses.some(c=>c.id===id)){ state.courses.push({id, code: code.toUpperCase(), name, desc, hex}); }
+  } else if((m = line.match(CMD_PATTERNS[5]))){
+    const cid = m[1].toLowerCase().replace(/-/g,'');
+    state.assignments = state.assignments.filter(a=>a.course!==cid);
+    state.courses = state.courses.filter(c=>c.id!==cid);
   }
   renderAll();
 }
-function mmddToIso(mmddyyyy){ const [m,d,y]=mmddyyyy.split('/').map(Number); return `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
 
-document.getElementById('infoToggle').addEventListener('click', ()=>{
-  document.getElementById('infoBubble').classList.toggle('show');
-});
+document.getElementById('infoToggle').addEventListener('click', ()=>{ document.getElementById('infoBubble').classList.toggle('show'); });
 document.addEventListener('click', (e)=>{
   const bubble = document.getElementById('infoBubble');
   if(!bubble.contains(e.target) && e.target.id !== 'infoToggle'){ bubble.classList.remove('show'); }
@@ -773,8 +1044,7 @@ function queueCommand(line){
 }
 function renderSaveBar(){
   const btn = document.getElementById('saveBtn');
-  const count = document.getElementById('saveCount');
-  count.textContent = state.pending.length;
+  document.getElementById('saveCount').textContent = state.pending.length;
   btn.disabled = state.pending.length === 0;
 }
 document.getElementById('saveBtn').addEventListener('click', ()=>{
@@ -797,10 +1067,9 @@ function renderAll(){
   renderNotes();
   renderHome();
   renderSaveBar();
-  if(document.getElementById('detailView').style.display === 'block'){
-    const openCourse = document.getElementById('detailCode').textContent;
-    const match = state.courses.find(c=>c.code===openCourse);
-    if(match) showDetail(match.id);
+  if(document.getElementById('detailView').style.display === 'block' && activeAssignCourse){
+    if(courseById()[activeAssignCourse]) showDetail(activeAssignCourse);
+    else document.getElementById('backBtn').click();
   }
 }
 
