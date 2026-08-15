@@ -27,6 +27,13 @@
       "name": "Issues in Graphic Arts Technology",
       "hex": "#2E8B77",
       "desc": "Graphic Artists Guild Handbook, delivered through the custom Folio epub reader."
+    },
+    {
+      "id": "web100",
+      "code": "WEB-100",
+      "name": "Introduction to Web Design",
+      "desc": "Building fun websites!",
+      "hex": "#8f4d32"
     }
   ],
   "assignments": [
@@ -1516,15 +1523,15 @@
       "completed": false
     },
     {
-      "id": "grd463-18",
-      "course": "grd463",
-      "name": "Second Try",
-      "points": null,
+      "id": "web100-1",
+      "course": "web100",
+      "name": "Project 1",
+      "points": 20,
       "type": "Project",
-      "due": "2026-08-21",
-      "available": "2026-08-15",
+      "due": "2026-08-22",
+      "available": "2026-08-14",
       "published": true,
-      "completed": true
+      "completed": false
     }
   ]
 }
