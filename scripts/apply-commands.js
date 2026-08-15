@@ -1,5 +1,5 @@
 // Parses one command per line from the GitHub Issue body and mutates
-// data/assignments.json and data/notes.json accordingly. Run by
+// data/assignments.json accordingly. Run by
 // .github/workflows/process-commands.yml on every new issue.
 
 const fs = require('fs');
@@ -12,10 +12,13 @@ const RESULTS_PATH = path.join(__dirname, '..', 'command-results.txt');
 const assignData = JSON.parse(fs.readFileSync(ASSIGN_PATH, 'utf8'));
 const notesData = JSON.parse(fs.readFileSync(NOTES_PATH, 'utf8'));
 
-const VALID_COURSES = assignData.courses.map(c => c.id);
 function normCourse(c) { return c.toLowerCase().replace(/-/g, ''); }
-const courseMap = {};
-VALID_COURSES.forEach(id => { courseMap[normCourse(id)] = id; });
+
+function courseMap() {
+  const map = {};
+  assignData.courses.forEach(c => { map[normCourse(c.id)] = c.id; });
+  return map;
+}
 
 function toISO(mmddyyyy) {
   const [m, d, y] = mmddyyyy.split('/').map(Number);
@@ -45,11 +48,36 @@ const lines = (process.env.ISSUE_BODY || '').split('\n').map(l => l.trim()).filt
 for (const line of lines) {
   try {
     let m;
+    const cMap = courseMap();
 
-    // add TYPE "NAME" course CODE [start MM/DD/YYYY] [end MM/DD/YYYY] [points N]
-    if ((m = line.match(/^add\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+points\s+(\d+))?\s*$/i))) {
-      const [, type, name, courseRaw, start, end, points] = m;
-      const courseId = courseMap[normCourse(courseRaw)];
+    // add course "XXX-000" "Name" "Description" color #HEX
+    if ((m = line.match(/^add\s+course\s+"([A-Za-z]{3}-\d{3})"\s+"([^"]+)"\s+"([^"]*)"\s+color\s+(#[0-9a-fA-F]{6})\s*$/i))) {
+      const [, code, name, desc, hex] = m;
+      const courseId = normCourse(code);
+      if (assignData.courses.some(c => c.id === courseId)) {
+        results.push(`FAILED: "${line}" — course ${code} already exists`);
+        continue;
+      }
+      assignData.courses.push({ id: courseId, code: code.toUpperCase(), name, desc, hex });
+      results.push(`OK: added course ${code.toUpperCase()} — ${name}`);
+      continue;
+    }
+
+    // delete course CODE
+    if ((m = line.match(/^delete\s+course\s+([a-z0-9-]+)\s*$/i))) {
+      const courseId = cMap[normCourse(m[1])];
+      if (!courseId) { results.push(`FAILED: "${line}" — unknown course "${m[1]}"`); continue; }
+      const before = assignData.assignments.length;
+      assignData.assignments = assignData.assignments.filter(a => a.course !== courseId);
+      assignData.courses = assignData.courses.filter(c => c.id !== courseId);
+      results.push(`OK: deleted course ${courseId} and ${before - assignData.assignments.length} assignment(s)`);
+      continue;
+    }
+
+    // add TYPE "NAME" course CODE [points N] [start MM/DD/YYYY] [end MM/DD/YYYY]
+    if ((m = line.match(/^add\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+points\s+(\d+))?(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?\s*$/i))) {
+      const [, type, name, courseRaw, points, start, end] = m;
+      const courseId = cMap[normCourse(courseRaw)];
       if (!courseId) { results.push(`FAILED: "${line}" — unknown course "${courseRaw}"`); continue; }
       assignData.assignments.push({
         id: nextId(courseId), course: courseId, name,
@@ -66,7 +94,7 @@ for (const line of lines) {
     // delete TYPE "NAME" course CODE
     if ((m = line.match(/^delete\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)\s*$/i))) {
       const [, , name, courseRaw] = m;
-      const courseId = courseMap[normCourse(courseRaw)];
+      const courseId = cMap[normCourse(courseRaw)];
       if (!courseId) { results.push(`FAILED: "${line}" — unknown course "${courseRaw}"`); continue; }
       const found = findAssignment(name, courseId);
       if (!found) { results.push(`FAILED: "${line}" — no unique match for "${name}"`); continue; }
@@ -75,16 +103,16 @@ for (const line of lines) {
       continue;
     }
 
-    // change TYPE "NAME" course CODE [start ...] [end ...] [points ...]
-    if ((m = line.match(/^change\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+points\s+(\d+))?\s*$/i))) {
-      const [, , name, courseRaw, start, end, points] = m;
-      const courseId = courseMap[normCourse(courseRaw)];
+    // change TYPE "NAME" course CODE [points N] [start ...] [end ...]
+    if ((m = line.match(/^change\s+(project|assignment|discussion)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)(?:\s+points\s+(\d+))?(?:\s+start\s+(\d{1,2}\/\d{1,2}\/\d{4}))?(?:\s+end\s+(\d{1,2}\/\d{1,2}\/\d{4}))?\s*$/i))) {
+      const [, , name, courseRaw, points, start, end] = m;
+      const courseId = cMap[normCourse(courseRaw)];
       if (!courseId) { results.push(`FAILED: "${line}" — unknown course "${courseRaw}"`); continue; }
       const found = findAssignment(name, courseId);
       if (!found) { results.push(`FAILED: "${line}" — no unique match for "${name}"`); continue; }
+      if (points) found.points = parseInt(points, 10);
       if (start) found.available = toISO(start);
       if (end) found.due = toISO(end);
-      if (points) found.points = parseInt(points, 10);
       results.push(`OK: updated "${found.name}" in ${courseId}`);
       continue;
     }
@@ -92,7 +120,7 @@ for (const line of lines) {
     // complete/uncomplete "NAME" course CODE
     if ((m = line.match(/^(complete|uncomplete)\s+"([^"]+)"\s+course\s+([a-z0-9-]+)\s*$/i))) {
       const [, action, name, courseRaw] = m;
-      const courseId = courseMap[normCourse(courseRaw)];
+      const courseId = cMap[normCourse(courseRaw)];
       if (!courseId) { results.push(`FAILED: "${line}" — unknown course "${courseRaw}"`); continue; }
       const found = findAssignment(name, courseId);
       if (!found) { results.push(`FAILED: "${line}" — no unique match for "${name}"`); continue; }
