@@ -1,3 +1,9 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "id": 1,
+      "text": "Announcement!",
+      "created": "2026-08-15"
+    }
+  ]
 }
