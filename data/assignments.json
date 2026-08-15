@@ -1524,7 +1524,7 @@
       "due": "2026-08-21",
       "available": "2026-08-15",
       "published": true,
-      "completed": false
+      "completed": true
     }
   ]
 }
