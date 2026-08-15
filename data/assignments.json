@@ -1514,6 +1514,17 @@
       "available": "2026-11-08",
       "published": true,
       "completed": false
+    },
+    {
+      "id": "grd463-18",
+      "course": "grd463",
+      "name": "Second Try",
+      "points": null,
+      "type": "Project",
+      "due": "2026-08-21",
+      "available": "2026-08-15",
+      "published": true,
+      "completed": false
     }
   ]
 }
