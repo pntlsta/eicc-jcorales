@@ -27,6 +27,13 @@
       "name": "Issues in Graphic Arts Technology",
       "hex": "#2E8B77",
       "desc": "Graphic Artists Guild Handbook, delivered through the custom Folio epub reader."
+    },
+    {
+      "id": "oth001",
+      "code": "OTH-001",
+      "name": "Other Events",
+      "desc": "Just a regular calendar.",
+      "hex": "#6a3097"
     }
   ],
   "assignments": [
@@ -1512,6 +1519,17 @@
       "type": "Discussion",
       "due": "2026-12-12",
       "available": "2026-11-08",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "oth001-1",
+      "course": "oth001",
+      "name": "8:30AM @ EICC",
+      "points": 0,
+      "type": "Assignment",
+      "due": null,
+      "available": "2026-08-18",
       "published": true,
       "completed": false
     }
