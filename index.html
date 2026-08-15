@@ -594,8 +594,8 @@ function openDayModal(iso, dueList, availList){
       </div>`;
   };
   let html = '';
-  if(dueList.length){ html += `<div class="modal-section-label">Due</div>` + dueList.map(renderItem).join(''); }
-  if(availList.length){ html += `<div class="modal-section-label">Available</div>` + availList.map(renderItem).join(''); }
+  if(dueList.length){ html += `<div class="modal-section-label" style="color:var(--red);">Due</div>` + dueList.map(renderItem).join(''); }
+  if(availList.length){ html += `<div class="modal-section-label" style="color:var(--green);">Available</div>` + availList.map(renderItem).join(''); }
   document.getElementById('modalBody').innerHTML = html;
   document.getElementById('overlay').classList.add('show');
 }
