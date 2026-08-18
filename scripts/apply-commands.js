@@ -7,10 +7,16 @@ const path = require('path');
 
 const ASSIGN_PATH = path.join(__dirname, '..', 'data', 'assignments.json');
 const NOTES_PATH = path.join(__dirname, '..', 'data', 'notes.json');
+const NOTEBOOKS_INDEX_PATH = path.join(__dirname, '..', 'data', 'notebooks.json');
+const NOTEBOOKS_DIR = path.join(__dirname, '..', 'data', 'notebooks');
 const RESULTS_PATH = path.join(__dirname, '..', 'command-results.txt');
 
 const assignData = JSON.parse(fs.readFileSync(ASSIGN_PATH, 'utf8'));
 const notesData = JSON.parse(fs.readFileSync(NOTES_PATH, 'utf8'));
+const notebooksData = fs.existsSync(NOTEBOOKS_INDEX_PATH)
+  ? JSON.parse(fs.readFileSync(NOTEBOOKS_INDEX_PATH, 'utf8'))
+  : { notebooks: [] };
+if (!fs.existsSync(NOTEBOOKS_DIR)) fs.mkdirSync(NOTEBOOKS_DIR, { recursive: true });
 
 function normCourse(c) { return c.toLowerCase().replace(/-/g, ''); }
 
@@ -129,6 +135,40 @@ for (const line of lines) {
       continue;
     }
 
+    // notebook save "filename.md" "Title" BASE64CONTENT
+    if ((m = line.match(/^notebook\s+save\s+"([^"]+\.md)"\s+"([^"]*)"\s+(\S+)\s*$/i))) {
+      const [, filename, title, b64] = m;
+      let content;
+      try {
+        content = Buffer.from(b64, 'base64').toString('utf8');
+      } catch (e) {
+        results.push(`FAILED: "notebook save ${filename}" — couldn't decode content`);
+        continue;
+      }
+      fs.writeFileSync(path.join(NOTEBOOKS_DIR, filename), content, 'utf8');
+      const existing = notebooksData.notebooks.find(n => n.filename === filename);
+      const now = new Date().toISOString().slice(0, 10);
+      if (existing) {
+        existing.title = title || existing.title;
+        existing.updated = now;
+      } else {
+        notebooksData.notebooks.push({ filename, title: title || filename, created: now, updated: now });
+      }
+      results.push(`OK: saved notebook "${filename}"`);
+      continue;
+    }
+
+    // notebook delete "filename.md"
+    if ((m = line.match(/^notebook\s+delete\s+"([^"]+\.md)"\s*$/i))) {
+      const filename = m[1];
+      const filePath = path.join(NOTEBOOKS_DIR, filename);
+      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      const before = notebooksData.notebooks.length;
+      notebooksData.notebooks = notebooksData.notebooks.filter(n => n.filename !== filename);
+      results.push(notebooksData.notebooks.length < before ? `OK: deleted notebook "${filename}"` : `FAILED: notebook "${filename}" not found in index`);
+      continue;
+    }
+
     // note add "TEXT"
     if ((m = line.match(/^note\s+add\s+"([^"]+)"\s*$/i))) {
       const text = m[1];
@@ -165,5 +205,6 @@ for (const line of lines) {
 
 fs.writeFileSync(ASSIGN_PATH, JSON.stringify(assignData, null, 2));
 fs.writeFileSync(NOTES_PATH, JSON.stringify(notesData, null, 2));
+fs.writeFileSync(NOTEBOOKS_INDEX_PATH, JSON.stringify(notebooksData, null, 2));
 fs.writeFileSync(RESULTS_PATH, results.length ? results.join('\n') : 'No commands found in issue body.');
 console.log(results.join('\n'));
