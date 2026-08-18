@@ -531,8 +531,8 @@
       "name": "Technology & Readiness Check",
       "points": 5,
       "type": "Online Quiz",
-      "due": "2027-01-25",
-      "available": "2027-01-19",
+      "due": "2026-08-28",
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -542,8 +542,8 @@
       "name": "Syllabus & Course Orientation Quiz",
       "points": 10,
       "type": "Online Quiz",
-      "due": "2027-01-25",
-      "available": "2027-01-19",
+      "due": "2026-08-28",
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
