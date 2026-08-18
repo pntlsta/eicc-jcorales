@@ -27,7 +27,7 @@ jobs:
         run: |
           git config user.name "tracker-bot"
           git config user.email "actions@github.com"
-          git add data/assignments.json data/notes.json
+          git add data/
           git diff --quiet --cached || git commit -m "Tracker update via issue #${{ github.event.issue.number }}"
           git push
 
