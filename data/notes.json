@@ -1,3 +1,24 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "id": 1,
+      "text": "ANNOUNCE OTH-001 AVAILABILITY",
+      "created": "2026-08-18"
+    },
+    {
+      "id": 2,
+      "text": "ANNOUNCE OTH-001 AVAILABILITY",
+      "created": "2026-08-18"
+    },
+    {
+      "id": 3,
+      "text": "ANNOUNCE OTH-001 AVAILABILITY",
+      "created": "2026-08-18"
+    },
+    {
+      "id": 4,
+      "text": "ANNOUNCE OTH-001 AVAILABILITY",
+      "created": "2026-08-18"
+    }
+  ]
 }
