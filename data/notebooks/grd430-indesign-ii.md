@@ -1,6 +1,6 @@
 ## Week 1: Startup (Aug 24–29)
-- Syllabus & Course Orientation Quiz — 10 pts (Due: Aug 29)
-- Technology & Readiness Check — 5 pts (Due: Aug 29)
+- Syllabus & Course Orientation Quiz — 10 pts (Due: Aug 28)
+- Technology & Readiness Check — 5 pts (Due: Aug 28)
 
 ---
 
