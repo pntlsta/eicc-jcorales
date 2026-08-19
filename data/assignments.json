@@ -1043,6 +1043,28 @@
       "completed": false
     },
     {
+      "id": "grt237-36",
+      "course": "grt237",
+      "name": "Technology & Readiness Check",
+      "points": 5,
+      "type": "Online Upload",
+      "due": "2026-08-28",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-37",
+      "course": "grt237",
+      "name": "Syllabus & Course Orientation Quiz",
+      "points": 10,
+      "type": "Online Quiz",
+      "due": "2026-08-28",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
       "id": "grt245-1",
       "course": "grt245",
       "name": "Calculate Your Hourly Rate Assignment",
@@ -1512,6 +1534,28 @@
       "type": "Discussion",
       "due": "2026-12-12",
       "available": "2026-11-08",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-44",
+      "course": "grt245",
+      "name": "Technology & Readiness Check",
+      "points": 5,
+      "type": "Online Upload",
+      "due": "2026-08-28",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-45",
+      "course": "grt245",
+      "name": "Syllabus & Course Orientation Quiz",
+      "points": 10,
+      "type": "Online Quiz",
+      "due": "2026-08-28",
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     }
