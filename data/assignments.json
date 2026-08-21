@@ -35,7 +35,7 @@
       "course": "grd463",
       "name": "Technology & Readiness Check",
       "points": 5,
-      "type": "External Tool (Quiz)",
+      "type": "Quiz",
       "due": "2026-08-29",
       "available": "2026-08-24",
       "published": true,
@@ -46,7 +46,7 @@
       "course": "grd463",
       "name": "Syllabus & Course Orientation Quiz",
       "points": 10,
-      "type": "External Tool (Quiz)",
+      "type": "Quiz",
       "due": "2026-08-29",
       "available": "2026-08-24",
       "published": true,
@@ -66,10 +66,10 @@
     {
       "id": "grd463-4",
       "course": "grd463",
-      "name": "Mastering Selections 1",
-      "points": 10,
+      "name": "Intro to Photoshop Training",
+      "points": null,
       "type": "Online Upload",
-      "due": "2026-09-21",
+      "due": "2026-08-31",
       "available": "2026-08-24",
       "published": true,
       "completed": false
@@ -77,10 +77,10 @@
     {
       "id": "grd463-5",
       "course": "grd463",
-      "name": "Mastering Selections 2",
-      "points": 10,
+      "name": "Intro to Photoshop 2",
+      "points": null,
       "type": "Online Upload",
-      "due": "2026-09-21",
+      "due": "2026-08-31",
       "available": "2026-08-24",
       "published": true,
       "completed": false
@@ -88,10 +88,10 @@
     {
       "id": "grd463-6",
       "course": "grd463",
-      "name": "Mastering Selections 3",
-      "points": 10,
+      "name": "Intro to Photoshop 3",
+      "points": null,
       "type": "Online Upload",
-      "due": "2026-09-21",
+      "due": "2026-08-31",
       "available": "2026-08-24",
       "published": true,
       "completed": false
@@ -99,7 +99,7 @@
     {
       "id": "grd463-7",
       "course": "grd463",
-      "name": "Mastering Selections 4",
+      "name": "Mastering Selections 1",
       "points": 10,
       "type": "Online Upload",
       "due": "2026-09-21",
@@ -110,6 +110,39 @@
     {
       "id": "grd463-8",
       "course": "grd463",
+      "name": "Mastering Selections 2",
+      "points": 10,
+      "type": "Online Upload",
+      "due": "2026-09-21",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd463-9",
+      "course": "grd463",
+      "name": "Mastering Selections 3",
+      "points": 10,
+      "type": "Online Upload",
+      "due": "2026-09-21",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd463-10",
+      "course": "grd463",
+      "name": "Mastering Selections 4",
+      "points": 10,
+      "type": "Online Upload",
+      "due": "2026-09-21",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd463-11",
+      "course": "grd463",
       "name": "Selections and Masking Project",
       "points": 25,
       "type": "Online Upload",
@@ -119,7 +152,7 @@
       "completed": false
     },
     {
-      "id": "grd463-9",
+      "id": "grd463-12",
       "course": "grd463",
       "name": "Layers in Photoshop",
       "points": 10,
@@ -130,7 +163,7 @@
       "completed": false
     },
     {
-      "id": "grd463-10",
+      "id": "grd463-13",
       "course": "grd463",
       "name": "Layers Project",
       "points": 25,
@@ -141,7 +174,7 @@
       "completed": false
     },
     {
-      "id": "grd463-11",
+      "id": "grd463-14",
       "course": "grd463",
       "name": "Cropping in Photoshop",
       "points": 10,
@@ -152,7 +185,7 @@
       "completed": false
     },
     {
-      "id": "grd463-12",
+      "id": "grd463-15",
       "course": "grd463",
       "name": "Cropping Project",
       "points": 25,
@@ -163,7 +196,7 @@
       "completed": false
     },
     {
-      "id": "grd463-13",
+      "id": "grd463-16",
       "course": "grd463",
       "name": "Smart Objects-Day 1",
       "points": 10,
@@ -174,7 +207,7 @@
       "completed": false
     },
     {
-      "id": "grd463-14",
+      "id": "grd463-17",
       "course": "grd463",
       "name": "Smart Objects-Day 2",
       "points": 10,
@@ -185,7 +218,7 @@
       "completed": false
     },
     {
-      "id": "grd463-15",
+      "id": "grd463-18",
       "course": "grd463",
       "name": "Smart Object Project",
       "points": 25,
@@ -196,7 +229,7 @@
       "completed": false
     },
     {
-      "id": "grd463-16",
+      "id": "grd463-19",
       "course": "grd463",
       "name": "Discussion: Smart Object Project",
       "points": 10,
@@ -207,7 +240,7 @@
       "completed": false
     },
     {
-      "id": "grd463-17",
+      "id": "grd463-20",
       "course": "grd463",
       "name": "Type Essentials 1",
       "points": 10,
@@ -218,7 +251,7 @@
       "completed": false
     },
     {
-      "id": "grd463-18",
+      "id": "grd463-21",
       "course": "grd463",
       "name": "Type Essentials 2",
       "points": 10,
@@ -229,7 +262,7 @@
       "completed": false
     },
     {
-      "id": "grd463-19",
+      "id": "grd463-22",
       "course": "grd463",
       "name": "Type Project",
       "points": 25,
@@ -240,9 +273,9 @@
       "completed": false
     },
     {
-      "id": "grd463-20",
+      "id": "grd463-23",
       "course": "grd463",
-      "name": "Midterm: Poster for Social Cause",
+      "name": "Midterm - Poster for Social Cause",
       "points": 100,
       "type": "Online Upload",
       "due": "2026-10-19",
@@ -251,7 +284,7 @@
       "completed": false
     },
     {
-      "id": "grd463-21",
+      "id": "grd463-24",
       "course": "grd463",
       "name": "Midterm Project Discussion",
       "points": 10,
@@ -262,7 +295,7 @@
       "completed": false
     },
     {
-      "id": "grd463-22",
+      "id": "grd463-25",
       "course": "grd463",
       "name": "Blending Modes 1",
       "points": 10,
@@ -273,7 +306,7 @@
       "completed": false
     },
     {
-      "id": "grd463-23",
+      "id": "grd463-26",
       "course": "grd463",
       "name": "Blending Modes 2",
       "points": 10,
@@ -284,7 +317,7 @@
       "completed": false
     },
     {
-      "id": "grd463-24",
+      "id": "grd463-27",
       "course": "grd463",
       "name": "Blending Modes Project",
       "points": 25,
@@ -295,7 +328,7 @@
       "completed": false
     },
     {
-      "id": "grd463-25",
+      "id": "grd463-28",
       "course": "grd463",
       "name": "Discussion: Blending Mode Project",
       "points": 10,
@@ -306,7 +339,7 @@
       "completed": false
     },
     {
-      "id": "grd463-26",
+      "id": "grd463-29",
       "course": "grd463",
       "name": "Creating a Business Logo",
       "points": 20,
@@ -317,7 +350,7 @@
       "completed": false
     },
     {
-      "id": "grd463-27",
+      "id": "grd463-30",
       "course": "grd463",
       "name": "Create a Portrait Collage in Photoshop",
       "points": 10,
@@ -328,7 +361,7 @@
       "completed": false
     },
     {
-      "id": "grd463-28",
+      "id": "grd463-31",
       "course": "grd463",
       "name": "Photoshop Compositing Tips Tricks and Techniques",
       "points": 10,
@@ -339,7 +372,7 @@
       "completed": false
     },
     {
-      "id": "grd463-29",
+      "id": "grd463-32",
       "course": "grd463",
       "name": "Portrait Collage Challenge",
       "points": 10,
@@ -350,9 +383,20 @@
       "completed": false
     },
     {
-      "id": "grd463-30",
+      "id": "grd463-33",
       "course": "grd463",
-      "name": "Thumbnails (Final Project)",
+      "name": "Discussion: Portrait Collage Challenge",
+      "points": 10,
+      "type": "Discussion Topic",
+      "due": "2026-11-30",
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd463-34",
+      "course": "grd463",
+      "name": "Thumbnails",
       "points": 10,
       "type": "Online Upload",
       "due": "2026-11-28",
@@ -361,9 +405,9 @@
       "completed": false
     },
     {
-      "id": "grd463-31",
+      "id": "grd463-35",
       "course": "grd463",
-      "name": "Roughs (Final Project)",
+      "name": "Roughs",
       "points": 10,
       "type": "Online Upload",
       "due": "2026-12-01",
@@ -372,18 +416,7 @@
       "completed": false
     },
     {
-      "id": "grd463-32",
-      "course": "grd463",
-      "name": "Discussion: Portrait Collage Challenge",
-      "points": 10,
-      "type": "Discussion Topic",
-      "due": "2026-12-01",
-      "available": null,
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd463-33",
+      "id": "grd463-36",
       "course": "grd463",
       "name": "Final Project - Food Truck",
       "points": 80,
@@ -394,12 +427,23 @@
       "completed": false
     },
     {
+      "id": "grd463-37",
+      "course": "grd463",
+      "name": "Hair Selection",
+      "points": 10,
+      "type": "Online Upload",
+      "due": null,
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
       "id": "grd430-1",
       "course": "grd430",
       "name": "Technology & Readiness Check",
       "points": 5,
       "type": "Quiz",
-      "due": "2026-08-29",
+      "due": "2026-08-28",
       "available": "2026-08-24",
       "published": true,
       "completed": false
@@ -410,7 +454,7 @@
       "name": "Syllabus & Course Orientation Quiz",
       "points": 10,
       "type": "Quiz",
-      "due": "2026-08-29",
+      "due": "2026-08-28",
       "available": "2026-08-24",
       "published": true,
       "completed": false
@@ -429,6 +473,17 @@
     {
       "id": "grd430-4",
       "course": "grd430",
+      "name": "Discussion: Variable Data Printing Video",
+      "points": 10,
+      "type": "Discussion",
+      "due": "2026-08-30",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-5",
+      "course": "grd430",
       "name": "Make a Database in Excel",
       "points": 10,
       "type": "Assignment",
@@ -438,7 +493,7 @@
       "completed": false
     },
     {
-      "id": "grd430-5",
+      "id": "grd430-6",
       "course": "grd430",
       "name": "Project 1 - VDP Business Card",
       "points": 10,
@@ -449,7 +504,7 @@
       "completed": false
     },
     {
-      "id": "grd430-6",
+      "id": "grd430-7",
       "course": "grd430",
       "name": "Project 2 Thumbnails",
       "points": 10,
@@ -460,7 +515,7 @@
       "completed": false
     },
     {
-      "id": "grd430-7",
+      "id": "grd430-8",
       "course": "grd430",
       "name": "Project 2 Roughs",
       "points": 10,
@@ -471,9 +526,9 @@
       "completed": false
     },
     {
-      "id": "grd430-8",
+      "id": "grd430-9",
       "course": "grd430",
-      "name": "Project 2 - VDP Postcard",
+      "name": "Project 2 - VDP Postcard for Starbucks",
       "points": 25,
       "type": "Assignment",
       "due": "2026-09-12",
@@ -482,7 +537,18 @@
       "completed": false
     },
     {
-      "id": "grd430-9",
+      "id": "grd430-10",
+      "course": "grd430",
+      "name": "Discussion-VDP Postcard for Starbucks",
+      "points": 5,
+      "type": "Discussion",
+      "due": null,
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-11",
       "course": "grd430",
       "name": "Project 3 Thumbnails",
       "points": 10,
@@ -493,7 +559,7 @@
       "completed": false
     },
     {
-      "id": "grd430-10",
+      "id": "grd430-12",
       "course": "grd430",
       "name": "Project 3 Roughs",
       "points": 10,
@@ -504,7 +570,7 @@
       "completed": false
     },
     {
-      "id": "grd430-11",
+      "id": "grd430-13",
       "course": "grd430",
       "name": "Project 3 - Small Billboard",
       "points": 30,
@@ -515,194 +581,7 @@
       "completed": false
     },
     {
-      "id": "grd430-12",
-      "course": "grd430",
-      "name": "Project 4 Thumbnails",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-09-30",
-      "available": "2026-08-24",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-13",
-      "course": "grd430",
-      "name": "Project 4 Roughs",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-02",
-      "available": "2026-08-24",
-      "published": true,
-      "completed": false
-    },
-    {
       "id": "grd430-14",
-      "course": "grd430",
-      "name": "Project 4 - Large Billboard",
-      "points": 30,
-      "type": "Assignment",
-      "due": "2026-10-09",
-      "available": "2026-08-24",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-15",
-      "course": "grd430",
-      "name": "Project 5 Research",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-13",
-      "available": "2026-09-13",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-16",
-      "course": "grd430",
-      "name": "Project 5 Thumbnails",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-17",
-      "available": "2026-09-13",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-17",
-      "course": "grd430",
-      "name": "Project 5 Roughs",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-20",
-      "available": "2026-09-13",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-18",
-      "course": "grd430",
-      "name": "Project 5 - Rock Island Grand Prix Promotion",
-      "points": 80,
-      "type": "Assignment",
-      "due": "2026-10-30",
-      "available": "2026-09-13",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-19",
-      "course": "grd430",
-      "name": "Project 6 Research",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-04",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-20",
-      "course": "grd430",
-      "name": "Project 6 Thumbnails",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-10",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-21",
-      "course": "grd430",
-      "name": "Project 6 Roughs",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-14",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-22",
-      "course": "grd430",
-      "name": "Project 6 - Vehicle Wrap",
-      "points": 80,
-      "type": "Assignment",
-      "due": "2026-11-18",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-23",
-      "course": "grd430",
-      "name": "Project 7 Research",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-21",
-      "available": "2026-10-18",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-24",
-      "course": "grd430",
-      "name": "Project 7 Thumbnails",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-12-01",
-      "available": "2026-10-18",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-25",
-      "course": "grd430",
-      "name": "Project 7 Roughs",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-12-03",
-      "available": "2026-10-18",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-26",
-      "course": "grd430",
-      "name": "Project 7 - Book Design for Print",
-      "points": 80,
-      "type": "Assignment",
-      "due": "2026-12-09",
-      "available": "2026-10-18",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-27",
-      "course": "grd430",
-      "name": "Discussion: Variable Data Printing Video",
-      "points": 10,
-      "type": "Discussion",
-      "due": "2026-08-30",
-      "available": null,
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-28",
-      "course": "grd430",
-      "name": "Discussion-VDP Postcard",
-      "points": 5,
-      "type": "Discussion",
-      "due": null,
-      "available": null,
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grd430-29",
       "course": "grd430",
       "name": "Discussion- Small Billboard",
       "points": 5,
@@ -713,7 +592,40 @@
       "completed": false
     },
     {
-      "id": "grd430-30",
+      "id": "grd430-15",
+      "course": "grd430",
+      "name": "Project 4 Thumbnails",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-09-30",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-16",
+      "course": "grd430",
+      "name": "Project 4 Roughs",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-02",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-17",
+      "course": "grd430",
+      "name": "Project 4 - Large Billboard",
+      "points": 30,
+      "type": "Assignment",
+      "due": "2026-10-09",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-18",
       "course": "grd430",
       "name": "Discussion- Large Billboard",
       "points": 5,
@@ -724,7 +636,62 @@
       "completed": false
     },
     {
-      "id": "grd430-31",
+      "id": "grd430-19",
+      "course": "grd430",
+      "name": "Project 5 Research",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-13",
+      "available": "2026-09-13",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-20",
+      "course": "grd430",
+      "name": "Discussion: Project 5 Research",
+      "points": 10,
+      "type": "Discussion",
+      "due": "2026-10-14",
+      "available": "2026-09-13",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-21",
+      "course": "grd430",
+      "name": "Project 5 Thumbnails",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-17",
+      "available": "2026-09-13",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-22",
+      "course": "grd430",
+      "name": "Project 5 Roughs",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-20",
+      "available": "2026-09-13",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-23",
+      "course": "grd430",
+      "name": "Project 5 - Rock Island Grand Prix Promotion",
+      "points": 80,
+      "type": "Assignment",
+      "due": "2026-10-30",
+      "available": "2026-09-13",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-24",
       "course": "grd430",
       "name": "Discussion- Rock Island Grand Prix",
       "points": 5,
@@ -735,36 +702,179 @@
       "completed": false
     },
     {
-      "id": "grd430-32",
+      "id": "grd430-25",
       "course": "grd430",
-      "name": "Discussion: Project 5 Research",
+      "name": "Project 6 Research",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-04",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-26",
+      "course": "grd430",
+      "name": "Discussion: Project 6 Research",
       "points": 10,
       "type": "Discussion",
-      "due": "2026-10-14",
-      "available": null,
+      "due": "2026-11-05",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-27",
+      "course": "grd430",
+      "name": "Project 6 Thumbnails",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-10",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-28",
+      "course": "grd430",
+      "name": "Project 6 Roughs",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-14",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-29",
+      "course": "grd430",
+      "name": "Project 6 - Vehicle Wrap",
+      "points": 80,
+      "type": "Assignment",
+      "due": "2026-11-18",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-30",
+      "course": "grd430",
+      "name": "Project 7 Research",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-21",
+      "available": "2026-10-18",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-31",
+      "course": "grd430",
+      "name": "Discussion: Project 7 Research",
+      "points": 10,
+      "type": "Discussion",
+      "due": "2026-11-24",
+      "available": "2026-10-18",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-32",
+      "course": "grd430",
+      "name": "Project 7 Thumbnails",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-12-01",
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
     {
       "id": "grd430-33",
       "course": "grd430",
-      "name": "Discussion: Project 6 Research",
+      "name": "Project 7 Roughs",
       "points": 10,
-      "type": "Discussion",
-      "due": "2026-11-05",
-      "available": null,
+      "type": "Assignment",
+      "due": "2026-12-03",
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
     {
       "id": "grd430-34",
       "course": "grd430",
-      "name": "Discussion: Project 7 Research",
-      "points": 10,
+      "name": "Project 7 - Book Design for Print",
+      "points": 80,
+      "type": "Assignment",
+      "due": "2026-12-09",
+      "available": "2026-10-18",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-35",
+      "course": "grd430",
+      "name": "Discussion - Book Design",
+      "points": 5,
       "type": "Discussion",
-      "due": "2026-11-24",
+      "due": null,
       "available": null,
       "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-36",
+      "course": "grd430",
+      "name": "Selections and Masking",
+      "points": null,
+      "type": "Not Graded",
+      "due": null,
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-37",
+      "course": "grd430",
+      "name": "Photoshop Masking and Selecting",
+      "points": null,
+      "type": "Not Graded",
+      "due": null,
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-38",
+      "course": "grd430",
+      "name": "VDP Business Card",
+      "points": null,
+      "type": "Not Graded",
+      "due": null,
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-39",
+      "course": "grd430",
+      "name": "VDP Post Card",
+      "points": null,
+      "type": "Not Graded",
+      "due": null,
+      "available": null,
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd430-40",
+      "course": "grd430",
+      "name": "River Music Experience Posters",
+      "points": 10,
+      "type": "Assignment",
+      "due": null,
+      "available": null,
+      "published": false,
       "completed": false
     },
     {
@@ -792,6 +902,28 @@
     {
       "id": "grt237-3",
       "course": "grt237",
+      "name": "Project 1 Thumbnails",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-09-21",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-4",
+      "course": "grt237",
+      "name": "Project 1 Roughs",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-09-24",
+      "available": "2026-08-24",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-5",
+      "course": "grt237",
       "name": "Project 1 Cereal Box",
       "points": 80,
       "type": "Assignment",
@@ -801,139 +933,7 @@
       "completed": false
     },
     {
-      "id": "grt237-4",
-      "course": "grt237",
-      "name": "Playing Cards Project",
-      "points": 80,
-      "type": "Assignment",
-      "due": "2026-12-09",
-      "available": "2026-11-08",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-5",
-      "course": "grt237",
-      "name": "Thumbnails Playing Card Project",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-12-09",
-      "available": "2026-11-15",
-      "published": true,
-      "completed": false
-    },
-    {
       "id": "grt237-6",
-      "course": "grt237",
-      "name": "Project 1 Thumbnails",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-09-21",
-      "available": "2026-08-30",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-7",
-      "course": "grt237",
-      "name": "Roughs Playing Card and Box Project",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-12-09",
-      "available": "2026-11-08",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-8",
-      "course": "grt237",
-      "name": "Project 1 Roughs",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-09-24",
-      "available": "2026-08-30",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-9",
-      "course": "grt237",
-      "name": "Bottle Label and Carton Design Assignment",
-      "points": 80,
-      "type": "Assignment",
-      "due": "2026-11-09",
-      "available": "2026-10-18",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-10",
-      "course": "grt237",
-      "name": "Thumbnails Bottle Project",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-09",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-11",
-      "course": "grt237",
-      "name": "Roughs Bottle Project",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-10",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-12",
-      "course": "grt237",
-      "name": "Make a Mockup in Dimension of your Cereal Box",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-19",
-      "available": "2026-09-27",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-13",
-      "course": "grt237",
-      "name": "Mockup of Bottle Project",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-11-09",
-      "available": "2026-10-11",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-14",
-      "course": "grt237",
-      "name": "Mockup of Playing Card and Box Project",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-12-09",
-      "available": "2026-11-08",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-15",
-      "course": "grt237",
-      "name": "Print Production Packaging 2",
-      "points": 25,
-      "type": "Assignment",
-      "due": "2026-09-28",
-      "available": "2026-08-30",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt237-16",
       "course": "grt237",
       "name": "Print Production: Packaging 1",
       "points": 10,
@@ -944,9 +944,20 @@
       "completed": false
     },
     {
-      "id": "grt237-17",
+      "id": "grt237-7",
       "course": "grt237",
-      "name": "How Adobe Dimension Can Transform Your Product Design Workflow",
+      "name": "Print Production Packaging 2",
+      "points": 25,
+      "type": "Assignment",
+      "due": "2026-09-28",
+      "available": "2026-08-30",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-8",
+      "course": "grt237",
+      "name": "Make a Mockup in Dimension of your Cereal Box",
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-19",
@@ -955,7 +966,7 @@
       "completed": false
     },
     {
-      "id": "grt237-18",
+      "id": "grt237-9",
       "course": "grt237",
       "name": "3-d for 2-d Artists",
       "points": 10,
@@ -966,7 +977,18 @@
       "completed": false
     },
     {
-      "id": "grt237-19",
+      "id": "grt237-10",
+      "course": "grt237",
+      "name": "How Adobe Dimension Can Transform Your Product Design Workflow",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-19",
+      "available": "2026-09-27",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-11",
       "course": "grt237",
       "name": "Learning Package Design Assignment",
       "points": 10,
@@ -977,13 +999,101 @@
       "completed": false
     },
     {
-      "id": "grt237-20",
+      "id": "grt237-12",
       "course": "grt237",
       "name": "Research Component (Bottle Project)",
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-26",
       "available": "2026-09-27",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-13",
+      "course": "grt237",
+      "name": "Bottle Label and Carton Design Assignment",
+      "points": 80,
+      "type": "Assignment",
+      "due": "2026-11-09",
+      "available": "2026-10-18",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-14",
+      "course": "grt237",
+      "name": "Thumbnails Bottle Project",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-09",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-15",
+      "course": "grt237",
+      "name": "Roughs Bottle Project",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-10",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-16",
+      "course": "grt237",
+      "name": "Mockup of Bottle Project",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-11-09",
+      "available": "2026-10-11",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-17",
+      "course": "grt237",
+      "name": "Playing Cards Project",
+      "points": 80,
+      "type": "Assignment",
+      "due": "2026-12-09",
+      "available": "2026-11-08",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-18",
+      "course": "grt237",
+      "name": "Thumbnails Playing Card Project",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-12-09",
+      "available": "2026-11-15",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-19",
+      "course": "grt237",
+      "name": "Roughs Playing Card and Box Project",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-12-09",
+      "available": "2026-11-08",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt237-20",
+      "course": "grt237",
+      "name": "Mockup of Playing Card and Box Project",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-12-09",
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     },
@@ -1078,7 +1188,7 @@
     {
       "id": "grt237-29",
       "course": "grt237",
-      "name": "Discussion: Bottle Label and Carton Mock-up",
+      "name": "Discussion: Bottle Label and Carton Thumbnails",
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-09",
@@ -1089,7 +1199,7 @@
     {
       "id": "grt237-30",
       "course": "grt237",
-      "name": "Discussion: Bottle Label and Carton Thumbnails",
+      "name": "Discussion: Bottle Label and Carton Roughs",
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-09",
@@ -1100,10 +1210,10 @@
     {
       "id": "grt237-31",
       "course": "grt237",
-      "name": "Discussion: Bottle Label and Carton Roughs",
+      "name": "Discussion: Bottle Label and Carton Mock-up",
       "points": 10,
       "type": "Discussion",
-      "due": "2026-11-10",
+      "due": "2026-11-09",
       "available": "2026-10-11",
       "published": true,
       "completed": false
@@ -1177,39 +1287,6 @@
     {
       "id": "grt245-1",
       "course": "grt245",
-      "name": "Syllabus & Course Orientation Quiz",
-      "points": 10,
-      "type": "Quiz",
-      "due": "2026-08-29",
-      "available": "2026-08-24",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-2",
-      "course": "grt245",
-      "name": "Technology & Readiness Check",
-      "points": 5,
-      "type": "Quiz",
-      "due": "2026-08-29",
-      "available": "2026-08-24",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-3",
-      "course": "grt245",
-      "name": "Chapter 1 Essential Business Practices Quiz",
-      "points": 70,
-      "type": "Quiz",
-      "due": "2026-09-07",
-      "available": "2026-08-24",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-4",
-      "course": "grt245",
       "name": "Calculate Your Hourly Rate Assignment",
       "points": 10,
       "type": "Assignment",
@@ -1219,7 +1296,7 @@
       "completed": false
     },
     {
-      "id": "grt245-5",
+      "id": "grt245-2",
       "course": "grt245",
       "name": "Calculate Your Per Diem Rate Assignment",
       "points": 10,
@@ -1230,7 +1307,7 @@
       "completed": false
     },
     {
-      "id": "grt245-6",
+      "id": "grt245-3",
       "course": "grt245",
       "name": "Calculate Your Reverse Revenue Plan Assignment",
       "points": 10,
@@ -1241,7 +1318,7 @@
       "completed": false
     },
     {
-      "id": "grt245-7",
+      "id": "grt245-4",
       "course": "grt245",
       "name": "Calculate your Annual Base Minimum Assignment",
       "points": 10,
@@ -1252,7 +1329,7 @@
       "completed": false
     },
     {
-      "id": "grt245-8",
+      "id": "grt245-5",
       "course": "grt245",
       "name": "Calculate your Business Expenses Assignment",
       "points": 10,
@@ -1263,7 +1340,7 @@
       "completed": false
     },
     {
-      "id": "grt245-9",
+      "id": "grt245-6",
       "course": "grt245",
       "name": "How much do you need to live Assignment",
       "points": 10,
@@ -1274,18 +1351,18 @@
       "completed": false
     },
     {
-      "id": "grt245-10",
+      "id": "grt245-7",
       "course": "grt245",
-      "name": "Chapter 2 Professional Relationships Quiz",
-      "points": 40,
+      "name": "Chapter 1 Essential Business Practices Quiz",
+      "points": 70,
       "type": "Quiz",
-      "due": "2026-09-21",
-      "available": "2026-08-30",
+      "due": "2026-09-07",
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
     {
-      "id": "grt245-11",
+      "id": "grt245-8",
       "course": "grt245",
       "name": "Artists Representative Assignment",
       "points": 10,
@@ -1296,13 +1373,46 @@
       "completed": false
     },
     {
-      "id": "grt245-12",
+      "id": "grt245-9",
       "course": "grt245",
-      "name": "Artist Representative: Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
+      "name": "Chapter 2 Professional Relationships Quiz",
+      "points": 40,
+      "type": "Quiz",
       "due": "2026-09-21",
       "available": "2026-08-30",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-10",
+      "course": "grt245",
+      "name": "Employment Status Assignment",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-05",
+      "available": "2026-09-06",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-11",
+      "course": "grt245",
+      "name": "Sales Tax Assignment",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-05",
+      "available": "2026-09-06",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-12",
+      "course": "grt245",
+      "name": "Threats to the Profession Assignment",
+      "points": 10,
+      "type": "Assignment",
+      "due": "2026-10-05",
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1320,83 +1430,6 @@
     {
       "id": "grt245-14",
       "course": "grt245",
-      "name": "Employment Status Assignment",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-05",
-      "available": "2026-09-06",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-15",
-      "course": "grt245",
-      "name": "Employment Status: Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
-      "due": "2026-10-05",
-      "available": "2026-09-06",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-16",
-      "course": "grt245",
-      "name": "Sales Tax Assignment",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-05",
-      "available": "2026-09-06",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-17",
-      "course": "grt245",
-      "name": "Sales Tax: Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
-      "due": "2026-10-05",
-      "available": "2026-09-06",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-18",
-      "course": "grt245",
-      "name": "Threats to the Profession Assignment",
-      "points": 10,
-      "type": "Assignment",
-      "due": "2026-10-05",
-      "available": "2026-09-06",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-19",
-      "course": "grt245",
-      "name": "Threats to the Profession: Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
-      "due": "2026-10-05",
-      "available": "2026-09-06",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-20",
-      "course": "grt245",
-      "name": "Chapter 4 Maximizing Income Quiz",
-      "points": 25,
-      "type": "Quiz",
-      "due": "2026-10-19",
-      "available": "2026-09-20",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-21",
-      "course": "grt245",
       "name": "Marketing Plan Assignment",
       "points": 10,
       "type": "Assignment",
@@ -1406,18 +1439,7 @@
       "completed": false
     },
     {
-      "id": "grt245-22",
-      "course": "grt245",
-      "name": "Marketing Plan Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
-      "due": "2026-10-19",
-      "available": "2026-09-20",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-23",
+      "id": "grt245-15",
       "course": "grt245",
       "name": "Ongoing Promotion Assignment",
       "points": 10,
@@ -1428,18 +1450,7 @@
       "completed": false
     },
     {
-      "id": "grt245-24",
-      "course": "grt245",
-      "name": "Ongoing Promotion Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
-      "due": "2026-10-19",
-      "available": "2026-09-20",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-25",
+      "id": "grt245-16",
       "course": "grt245",
       "name": "Social Media Exploration Assignment",
       "points": 15,
@@ -1450,29 +1461,18 @@
       "completed": false
     },
     {
-      "id": "grt245-26",
+      "id": "grt245-17",
       "course": "grt245",
-      "name": "Social Media Exploration Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
+      "name": "Chapter 4 Maximizing Income Quiz",
+      "points": 25,
+      "type": "Quiz",
       "due": "2026-10-19",
       "available": "2026-09-20",
       "published": true,
       "completed": false
     },
     {
-      "id": "grt245-27",
-      "course": "grt245",
-      "name": "Chapter 12 Standard Contracts and Business Tools Quiz",
-      "points": 50,
-      "type": "Quiz",
-      "due": "2026-11-02",
-      "available": "2026-10-04",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-28",
+      "id": "grt245-18",
       "course": "grt245",
       "name": "Contracts and Business Tools Assignment",
       "points": 25,
@@ -1483,18 +1483,18 @@
       "completed": false
     },
     {
-      "id": "grt245-29",
+      "id": "grt245-19",
       "course": "grt245",
-      "name": "Contracts and Business Tools: Discussion",
-      "points": 5,
-      "type": "Graded Discussion",
+      "name": "Chapter 12 Standard Contracts and Business Tools Quiz",
+      "points": 50,
+      "type": "Quiz",
       "due": "2026-11-02",
       "available": "2026-10-04",
       "published": true,
       "completed": false
     },
     {
-      "id": "grt245-30",
+      "id": "grt245-20",
       "course": "grt245",
       "name": "Salaries, Pricing Guidelines and Trade Practices",
       "points": 25,
@@ -1505,7 +1505,7 @@
       "completed": false
     },
     {
-      "id": "grt245-31",
+      "id": "grt245-21",
       "course": "grt245",
       "name": "Discussion: Salary and Trade Practice Presentation",
       "points": 5,
@@ -1516,9 +1516,9 @@
       "completed": false
     },
     {
-      "id": "grt245-32",
+      "id": "grt245-22",
       "course": "grt245",
-      "name": "The Value of Graphic Design",
+      "name": "The Value of Graphic Design Assignment",
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-16",
@@ -1527,7 +1527,7 @@
       "completed": false
     },
     {
-      "id": "grt245-33",
+      "id": "grt245-23",
       "course": "grt245",
       "name": "Value of Graphic Design Assignment",
       "points": 25,
@@ -1538,106 +1538,7 @@
       "completed": false
     },
     {
-      "id": "grt245-34",
-      "course": "grt245",
-      "name": "Chapter 11-US Copyright Law Quiz",
-      "points": 38,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-35",
-      "course": "grt245",
-      "name": "Chapter 11-US Copyright Limitation Quiz",
-      "points": 11,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-36",
-      "course": "grt245",
-      "name": "Chapter 11-Copyright Registration Quiz",
-      "points": 20,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-37",
-      "course": "grt245",
-      "name": "Chapter 11-Protecting Copyrights Quiz",
-      "points": 18,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-38",
-      "course": "grt245",
-      "name": "Chapter 11-Works Made for Hire Quiz",
-      "points": 10,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-39",
-      "course": "grt245",
-      "name": "Chapter 11-Trademarks Quiz",
-      "points": 12,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-40",
-      "course": "grt245",
-      "name": "Chapter 11-Trade Dress Quiz",
-      "points": 14,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-41",
-      "course": "grt245",
-      "name": "Chapter 11-Legal Rights Beyond US Copyright Law Quiz",
-      "points": 18,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-42",
-      "course": "grt245",
-      "name": "Chapter 11-International Copyright Quiz",
-      "points": 10,
-      "type": "Quiz",
-      "due": "2026-11-30",
-      "available": "2026-11-01",
-      "published": true,
-      "completed": false
-    },
-    {
-      "id": "grt245-43",
+      "id": "grt245-24",
       "course": "grt245",
       "name": "Copyright Video",
       "points": 10,
@@ -1648,18 +1549,106 @@
       "completed": false
     },
     {
-      "id": "grt245-44",
+      "id": "grt245-25",
       "course": "grt245",
-      "name": "Chapter 11 Copyright Quiz",
-      "points": 100,
+      "name": "Chapter 11-US Copyright Law Quiz",
+      "points": 38,
       "type": "Quiz",
-      "due": "2026-11-02",
-      "available": null,
+      "due": "2026-11-30",
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
     {
-      "id": "grt245-45",
+      "id": "grt245-26",
+      "course": "grt245",
+      "name": "Chapter 11-US Copyright Limitation Quiz",
+      "points": 11,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-27",
+      "course": "grt245",
+      "name": "Chapter 11-Copyright Registration Quiz",
+      "points": 20,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-28",
+      "course": "grt245",
+      "name": "Chapter 11-Protecting Copyrights Quiz",
+      "points": 18,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-29",
+      "course": "grt245",
+      "name": "Chapter 11-Works Made for Hire Quiz",
+      "points": 10,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-30",
+      "course": "grt245",
+      "name": "Chapter 11-Trademarks Quiz",
+      "points": 12,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-31",
+      "course": "grt245",
+      "name": "Chapter 11-Trade Dress Quiz",
+      "points": 14,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-32",
+      "course": "grt245",
+      "name": "Chapter 11-Legal Rights Beyond US Copyright Law Quiz",
+      "points": 18,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-33",
+      "course": "grt245",
+      "name": "Chapter 11-International Copyright Quiz",
+      "points": 10,
+      "type": "Quiz",
+      "due": "2026-11-30",
+      "available": "2026-11-01",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grt245-34",
       "course": "grt245",
       "name": "Successfully Applying Practice: Assignment",
       "points": 25,
@@ -1670,7 +1659,7 @@
       "completed": false
     },
     {
-      "id": "grt245-46",
+      "id": "grt245-35",
       "course": "grt245",
       "name": "Discussion: Applying Practice",
       "points": 5,
