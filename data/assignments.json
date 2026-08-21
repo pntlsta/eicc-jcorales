@@ -37,7 +37,7 @@
       "points": 10,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -48,7 +48,7 @@
       "points": 5,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -59,7 +59,7 @@
       "points": null,
       "type": "Assignment",
       "due": "2026-08-30",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -70,7 +70,7 @@
       "points": null,
       "type": "Assignment",
       "due": "2026-08-30",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -81,7 +81,7 @@
       "points": null,
       "type": "Assignment",
       "due": "2026-08-30",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -92,7 +92,7 @@
       "points": 40,
       "type": "Assignment",
       "due": "2026-08-30",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -103,7 +103,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -114,7 +114,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -125,7 +125,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -136,7 +136,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -147,7 +147,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -158,7 +158,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-31",
       "published": true,
       "completed": false
     },
@@ -169,7 +169,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-31",
       "published": true,
       "completed": false
     },
@@ -180,7 +180,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-31",
       "published": true,
       "completed": false
     },
@@ -191,7 +191,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-31",
       "published": true,
       "completed": false
     },
@@ -202,7 +202,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-11",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -213,7 +213,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-11",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -224,7 +224,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-10-11",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -235,7 +235,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-10-11",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -257,7 +257,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-10-07",
       "published": true,
       "completed": false
     },
@@ -268,7 +268,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-01",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -279,7 +279,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-01",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -290,7 +290,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-11-01",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -301,7 +301,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -312,7 +312,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -323,7 +323,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -334,7 +334,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -345,7 +345,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -356,7 +356,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -378,7 +378,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -400,7 +400,7 @@
       "points": null,
       "type": "Not Graded",
       "due": "2026-12-11",
-      "available": null,
+      "available": "2026-11-23",
       "published": true,
       "completed": false
     },
@@ -411,7 +411,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-27",
-      "available": null,
+      "available": "2026-11-23",
       "published": true,
       "completed": false
     },
@@ -422,7 +422,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-30",
-      "available": null,
+      "available": "2026-11-23",
       "published": true,
       "completed": false
     },
@@ -433,7 +433,7 @@
       "points": 10,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -444,7 +444,7 @@
       "points": 5,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -455,7 +455,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-08-29",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -466,7 +466,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-08-29",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -477,7 +477,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-08-31",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -488,7 +488,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-04",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -499,7 +499,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-09-11",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -510,7 +510,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-02",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -521,7 +521,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -543,7 +543,7 @@
       "points": 30,
       "type": "Assignment",
       "due": "2026-09-25",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -554,7 +554,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-16",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -565,7 +565,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-18",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -587,7 +587,7 @@
       "points": 30,
       "type": "Assignment",
       "due": "2026-10-08",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -598,7 +598,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-29",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -609,7 +609,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-01",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -631,7 +631,7 @@
       "points": 80,
       "type": "Assignment",
       "due": "2026-10-29",
-      "available": null,
+      "available": "2026-09-13",
       "published": true,
       "completed": false
     },
@@ -642,7 +642,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-12",
-      "available": null,
+      "available": "2026-09-13",
       "published": true,
       "completed": false
     },
@@ -653,7 +653,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-10-13",
-      "available": null,
+      "available": "2026-09-13",
       "published": true,
       "completed": false
     },
@@ -664,7 +664,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-16",
-      "available": null,
+      "available": "2026-09-13",
       "published": true,
       "completed": false
     },
@@ -675,7 +675,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-19",
-      "available": null,
+      "available": "2026-09-13",
       "published": true,
       "completed": false
     },
@@ -686,7 +686,7 @@
       "points": 5,
       "type": "Discussion",
       "due": null,
-      "available": null,
+      "available": "2026-09-13",
       "published": true,
       "completed": false
     },
@@ -697,7 +697,7 @@
       "points": 80,
       "type": "Assignment",
       "due": "2026-11-17",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -708,7 +708,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-03",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -719,7 +719,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-04",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -730,7 +730,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-09",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -741,7 +741,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-13",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -752,7 +752,7 @@
       "points": 5,
       "type": "Discussion",
       "due": null,
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -763,7 +763,7 @@
       "points": 80,
       "type": "Assignment",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -774,7 +774,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-20",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -785,7 +785,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-23",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -796,7 +796,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-30",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -807,7 +807,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-12-02",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -818,7 +818,7 @@
       "points": 5,
       "type": "Discussion",
       "due": null,
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -884,7 +884,7 @@
       "points": 10,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -895,7 +895,7 @@
       "points": 5,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -906,7 +906,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -917,7 +917,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -928,7 +928,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -939,7 +939,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -950,7 +950,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -961,7 +961,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -972,7 +972,7 @@
       "points": 80,
       "type": "Assignment",
       "due": "2026-09-27",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -983,7 +983,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -994,7 +994,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -1005,7 +1005,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-23",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -1016,7 +1016,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -1027,7 +1027,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -1038,7 +1038,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -1049,7 +1049,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-11",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -1060,7 +1060,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -1071,7 +1071,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -1082,7 +1082,7 @@
       "points": 80,
       "type": "Assignment",
       "due": "2026-11-08",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -1093,7 +1093,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-25",
-      "available": null,
+      "available": "2026-09-27",
       "published": true,
       "completed": false
     },
@@ -1104,7 +1104,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-28",
-      "available": null,
+      "available": "2026-10-05",
       "published": true,
       "completed": false
     },
@@ -1115,7 +1115,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-08",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -1126,7 +1126,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-08",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -1137,7 +1137,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-09",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -1148,7 +1148,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-08",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -1159,7 +1159,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-08",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -1170,7 +1170,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-11-08",
-      "available": null,
+      "available": "2026-10-11",
       "published": true,
       "completed": false
     },
@@ -1181,7 +1181,7 @@
       "points": 80,
       "type": "Assignment",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     },
@@ -1192,7 +1192,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-23",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1203,7 +1203,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-11-28",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1214,7 +1214,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-15",
       "published": true,
       "completed": false
     },
@@ -1225,7 +1225,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-12-13",
-      "available": null,
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     },
@@ -1236,7 +1236,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     },
@@ -1247,7 +1247,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-15",
       "published": true,
       "completed": false
     },
@@ -1258,7 +1258,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     },
@@ -1269,7 +1269,7 @@
       "points": 10,
       "type": "Discussion",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-15",
       "published": true,
       "completed": false
     },
@@ -1280,7 +1280,7 @@
       "points": 10,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1291,7 +1291,7 @@
       "points": 5,
       "type": "Quiz",
       "due": "2026-08-28",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1302,7 +1302,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1313,7 +1313,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1324,7 +1324,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1335,7 +1335,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1346,7 +1346,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1357,7 +1357,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1368,7 +1368,7 @@
       "points": 70,
       "type": "Quiz",
       "due": "2026-09-06",
-      "available": null,
+      "available": "2026-08-24",
       "published": true,
       "completed": false
     },
@@ -1379,7 +1379,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -1401,7 +1401,7 @@
       "points": 40,
       "type": "Quiz",
       "due": "2026-09-20",
-      "available": null,
+      "available": "2026-08-30",
       "published": true,
       "completed": false
     },
@@ -1412,7 +1412,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1423,7 +1423,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1434,7 +1434,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1445,7 +1445,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1456,7 +1456,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1467,7 +1467,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1478,7 +1478,7 @@
       "points": 42,
       "type": "Quiz",
       "due": "2026-10-04",
-      "available": null,
+      "available": "2026-09-06",
       "published": true,
       "completed": false
     },
@@ -1489,7 +1489,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1500,7 +1500,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1511,7 +1511,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1522,7 +1522,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1533,7 +1533,7 @@
       "points": 15,
       "type": "Assignment",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1544,7 +1544,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1555,7 +1555,7 @@
       "points": 25,
       "type": "Quiz",
       "due": "2026-10-18",
-      "available": null,
+      "available": "2026-09-20",
       "published": true,
       "completed": false
     },
@@ -1566,7 +1566,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-11-01",
-      "available": null,
+      "available": "2026-10-04",
       "published": true,
       "completed": false
     },
@@ -1577,7 +1577,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-11-01",
-      "available": null,
+      "available": "2026-10-04",
       "published": true,
       "completed": false
     },
@@ -1588,7 +1588,7 @@
       "points": 50,
       "type": "Quiz",
       "due": "2026-11-01",
-      "available": null,
+      "available": "2026-10-04",
       "published": true,
       "completed": false
     },
@@ -1599,7 +1599,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -1610,7 +1610,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -1621,7 +1621,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -1632,7 +1632,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-11-15",
-      "available": null,
+      "available": "2026-10-18",
       "published": true,
       "completed": false
     },
@@ -1643,7 +1643,7 @@
       "points": 10,
       "type": "Assignment",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1654,7 +1654,7 @@
       "points": 38,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1665,7 +1665,7 @@
       "points": 11,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1676,7 +1676,7 @@
       "points": 10,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1687,7 +1687,7 @@
       "points": 20,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1698,7 +1698,7 @@
       "points": 18,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1709,7 +1709,7 @@
       "points": 18,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1720,7 +1720,7 @@
       "points": 12,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1731,7 +1731,7 @@
       "points": 14,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1742,7 +1742,7 @@
       "points": 10,
       "type": "Quiz",
       "due": "2026-11-29",
-      "available": null,
+      "available": "2026-11-01",
       "published": true,
       "completed": false
     },
@@ -1753,7 +1753,7 @@
       "points": 25,
       "type": "Assignment",
       "due": "2026-12-08",
-      "available": null,
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     },
@@ -1764,7 +1764,7 @@
       "points": 5,
       "type": "Discussion",
       "due": "2026-12-11",
-      "available": null,
+      "available": "2026-11-08",
       "published": true,
       "completed": false
     }
