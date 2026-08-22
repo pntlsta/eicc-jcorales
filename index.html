@@ -296,6 +296,23 @@
     <div class="sb-brand">Fall 2026 &middot; EICC</div>
     <h2 class="sb-title">EICC Classes</h2>
 
+    <div class="sb-section">
+      <div class="cal-head">
+        <div class="cal-month" id="calMonthLabel"></div>
+        <div class="cal-controls">
+          <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+          <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="calDowRow"></div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-key">
+        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
+        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+
     <div class="sb-section week-block current">
       <div class="sb-label"><span><span class="week-dot current"></span>This Week</span><span class="sb-range" id="thisWeekRange"></span></div>
       <div id="thisWeekList"></div>
