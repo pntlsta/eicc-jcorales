@@ -105,27 +105,44 @@
   .theme-btn{display:inline-flex;}
   .back-btn:hover, .theme-btn:hover{background:var(--paper); border-color:#C9C4B4;}
 
-  /* calendar panel (main page) */
-  .calendar-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
-  .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
-  .cal-month{font-size:18px; font-weight:600; letter-spacing:.01em; font-family:'Space Grotesk',sans-serif;}
-  .cal-controls{display:flex; gap:6px; align-items:center;}
-  .cal-nav{background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); width:28px; height:28px; border-radius:7px; cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center; padding:0;}
-  .cal-nav:hover{background:var(--line-soft);}
-  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:14px;}
-  .cal-dow{font-size:11px; text-align:center; color:var(--ink-soft); padding-bottom:6px; font-weight:600; letter-spacing:.04em;}
-  .cal-cell{aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:13.5px; color:var(--ink); border-radius:8px; position:relative; cursor:default; background:var(--paper-dim);}
+  /* mini calendar (sidebar) */
+  .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .cal-month{font-size:12.5px; font-weight:600; letter-spacing:.02em;}
+  .cal-controls{display:flex; gap:4px; align-items:center;}
+  .cal-nav{background:rgba(237,238,233,.08); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; width:20px; height:20px; border-radius:5px; cursor:pointer; font-size:11px; line-height:1; display:flex; align-items:center; justify-content:center; padding:0;}
+  .cal-nav:hover{background:rgba(237,238,233,.18);}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:10px;}
+  .cal-dow{font-size:9.5px; text-align:center; color:#7A8086; padding-bottom:3px;}
+  .cal-cell{aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:11px; color:#C7CBCF; border-radius:5px; position:relative; cursor:default; background:rgba(237,238,233,.03);}
   .cal-cell.pad{background:none !important; color:transparent; box-shadow:none !important;}
   .cal-cell.clickable{cursor:pointer;}
-  .cal-cell.clickable:hover{filter:brightness(.97);}
-  body.dark .cal-cell.clickable:hover{filter:brightness(1.2);}
-  .cal-dots{display:flex; gap:2px; position:absolute; bottom:4px;}
-  .cal-dots span{width:5px; height:5px; border-radius:50%;}
-  .legend{display:flex; flex-wrap:wrap; gap:8px 16px; padding-top:12px; border-top:1px solid var(--line-soft);}
-  .legend-row{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--ink-soft);}
-  .cal-key{display:flex; gap:16px; padding-bottom:12px; font-size:11.5px; color:var(--ink-soft);}
-  .cal-key span{display:flex; align-items:center; gap:6px;}
-  .cal-key i{width:11px; height:11px; border-radius:3px; display:inline-block;}
+  .cal-cell.clickable:hover{filter:brightness(1.25);}
+  .cal-dots{display:flex; gap:2px; position:absolute; bottom:3px;}
+  .cal-dots span{width:4px; height:4px; border-radius:50%;}
+  .legend{display:flex; flex-direction:column; gap:6px; padding-top:8px; border-top:1px solid rgba(237,238,233,.12);}
+  .legend-row{display:flex; align-items:center; gap:7px; font-size:11px; color:#B7BBBF;}
+  .cal-key{display:flex; gap:12px; padding-top:8px; font-size:10.5px; color:#9AA0A6;}
+  .cal-key span{display:flex; align-items:center; gap:5px;}
+  .cal-key i{width:10px; height:10px; border-radius:3px; display:inline-block;}
+
+  /* home-screen "Calendar" button + big calendar modal */
+  .calendar-open-row{margin-bottom:26px;}
+  .calendar-open-btn{width:100%; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 20px; cursor:pointer; font-size:15px; font-weight:600; color:var(--ink); display:flex; align-items:center; gap:10px; font-family:'Space Grotesk',sans-serif;}
+  .calendar-open-btn:hover{background:var(--paper-dim); border-color:#C9C4B4;}
+  #calendarOverlay{z-index:45;}
+  #calBigWrap .cal-head{margin-bottom:14px;}
+  #calBigWrap .cal-month{font-size:18px; font-weight:600; letter-spacing:.01em; font-family:'Space Grotesk',sans-serif;}
+  #calBigWrap .cal-nav{background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); width:28px; height:28px; border-radius:7px; font-size:13px;}
+  #calBigWrap .cal-nav:hover{background:var(--line-soft);}
+  #calBigWrap .cal-grid{gap:6px; margin-bottom:14px;}
+  #calBigWrap .cal-dow{font-size:11px; color:var(--ink-soft); padding-bottom:6px; font-weight:600; letter-spacing:.04em;}
+  #calBigWrap .cal-cell{font-size:13.5px; color:var(--ink); border-radius:8px; background:var(--paper-dim);}
+  #calBigWrap .cal-cell.clickable:hover{filter:brightness(.97);}
+  body.dark #calBigWrap .cal-cell.clickable:hover{filter:brightness(1.2);}
+  #calBigWrap .cal-dots span{width:5px; height:5px;}
+  #calBigWrap .legend{flex-direction:row; flex-wrap:wrap; gap:8px 16px; padding-top:12px; border-top:1px solid var(--line-soft);}
+  #calBigWrap .legend-row{color:var(--ink-soft); font-size:12px;}
+  #calBigWrap .cal-key{gap:16px; padding-bottom:12px; font-size:11.5px; color:var(--ink-soft);}
 
   /* notes panel (main page) */
   .notes-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
@@ -289,6 +306,23 @@
       <div id="nextWeekList"></div>
     </div>
 
+    <div class="sb-section">
+      <div class="cal-head">
+        <div class="cal-month" id="calMonthLabel"></div>
+        <div class="cal-controls">
+          <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+          <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="calDowRow"></div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-key">
+        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
+        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+
     <div class="sb-bottom">
       <div class="cmd-row">
         <button class="cmd-btn" id="cmdToggle">+ Command</button>
@@ -341,22 +375,9 @@
       </div>
     </div>
 
-    <section class="calendar-panel">
-      <div class="cal-head">
-        <div class="cal-month" id="calMonthLabel"></div>
-        <div class="cal-controls">
-          <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
-          <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
-        </div>
-      </div>
-      <div class="cal-grid" id="calDowRow"></div>
-      <div class="cal-grid" id="calGrid"></div>
-      <div class="cal-key">
-        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
-        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
-      </div>
-      <div class="legend" id="legend"></div>
-    </section>
+    <div class="calendar-open-row" id="calendarOpenRow">
+      <button class="calendar-open-btn" id="calendarOpenBtn">&#128197; Calendar</button>
+    </div>
 
     <section class="notes-panel">
       <div class="notes-panel-head">
@@ -429,6 +450,29 @@
       </div>
     </div>
   </main>
+</div>
+
+<!-- big calendar modal -->
+<div class="overlay" id="calendarOverlay">
+  <div class="modal" style="max-width:520px;">
+    <div class="modal-head"><h3>Calendar</h3><button class="modal-close" onclick="closeOverlay('calendarOverlay')">&times;</button></div>
+    <div class="modal-body" id="calBigWrap">
+      <div class="cal-head">
+        <div class="cal-month" id="calMonthLabelBig"></div>
+        <div class="cal-controls">
+          <button class="cal-nav" id="calPrevBig" aria-label="Previous month">&#8249;</button>
+          <button class="cal-nav" id="calNextBig" aria-label="Next month">&#8250;</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="calDowRowBig"></div>
+      <div class="cal-grid" id="calGridBig"></div>
+      <div class="cal-key">
+        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
+        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
+      </div>
+      <div class="legend" id="legendBig"></div>
+    </div>
+  </div>
 </div>
 
 <!-- day modal -->
@@ -681,10 +725,20 @@ function renderWeekSection(offset, listElId, rangeElId){
 
 /* ============ RENDER: CALENDAR ============ */
 function renderMiniCalendar(){
-  const monthLabelEl = document.getElementById('calMonthLabel');
-  const dowEl = document.getElementById('calDowRow');
-  const gridEl = document.getElementById('calGrid');
-  const legendEl = document.getElementById('legend');
+  renderCalendarInto('calMonthLabel', 'calDowRow', 'calGrid', 'legend');
+  renderCalendarInto('calMonthLabelBig', 'calDowRowBig', 'calGridBig', 'legendBig');
+}
+function navigateCalendar(delta){
+  calMonth += delta;
+  if(calMonth<0){calMonth=11; calYear--;}
+  if(calMonth>11){calMonth=0; calYear++;}
+  renderMiniCalendar();
+}
+function renderCalendarInto(monthLabelId, dowId, gridId, legendId){
+  const monthLabelEl = document.getElementById(monthLabelId);
+  const dowEl = document.getElementById(dowId);
+  const gridEl = document.getElementById(gridId);
+  const legendEl = document.getElementById(legendId);
 
   monthLabelEl.textContent = new Date(calYear, calMonth, 1).toLocaleDateString('en-US',{month:'long', year:'numeric'});
   dowEl.innerHTML = ['S','M','T','W','T','F','S'].map(d=>`<div class="cal-dow">${d}</div>`).join('');
@@ -749,8 +803,12 @@ function renderMiniCalendar(){
     <div class="legend-row"><span class="swatch-dot" style="background:${c.hex}"></span>${c.code} — ${c.name}</div>
   `).join('');
 }
-document.getElementById('calPrev').addEventListener('click', ()=>{ calMonth--; if(calMonth<0){calMonth=11; calYear--;} renderMiniCalendar(); });
-document.getElementById('calNext').addEventListener('click', ()=>{ calMonth++; if(calMonth>11){calMonth=0; calYear++;} renderMiniCalendar(); });
+document.getElementById('calPrev').addEventListener('click', ()=> navigateCalendar(-1));
+document.getElementById('calNext').addEventListener('click', ()=> navigateCalendar(1));
+document.getElementById('calPrevBig').addEventListener('click', ()=> navigateCalendar(-1));
+document.getElementById('calNextBig').addEventListener('click', ()=> navigateCalendar(1));
+document.getElementById('calendarOpenBtn').addEventListener('click', ()=>{ document.getElementById('calendarOverlay').classList.add('show'); });
+document.getElementById('calendarOverlay').addEventListener('click', e=>{ if(e.target.id==='calendarOverlay') closeOverlay('calendarOverlay'); });
 
 /* ============ DAY MODAL ============ */
 let dayModalDue = [], dayModalAvail = [];
@@ -1251,7 +1309,7 @@ function arrowFor(courseId, key){
 function showHomeSections(show){
   document.getElementById('homeView').style.display = show ? 'grid' : 'none';
   document.getElementById('homeAddRow').style.display = show ? 'flex' : 'none';
-  document.querySelector('.calendar-panel').style.display = show ? 'block' : 'none';
+  document.getElementById('calendarOpenRow').style.display = show ? 'block' : 'none';
   document.querySelector('.notes-panel').style.display = show ? 'block' : 'none';
   document.querySelector('.notebooks-panel').style.display = show ? 'block' : 'none';
 }
