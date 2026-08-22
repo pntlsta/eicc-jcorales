@@ -29,7 +29,7 @@
   button{font-family:inherit;}
   input,select,textarea{font-family:inherit;}
 
-  .shell{display:grid; grid-template-columns:340px 1fr; min-height:100vh;}
+  .shell{display:grid; grid-template-columns:300px 1fr; min-height:100vh;}
   @media (max-width:860px){
     .shell{grid-template-columns:1fr;}
     .sidebar{order:2; border-right:none; border-top:1px solid var(--line);}
@@ -42,37 +42,26 @@
   .sidebar::after{content:""; position:absolute; top:19px; right:19px; width:4px; height:4px; background:rgba(237,238,233,.5); border-radius:50%;}
   .sb-brand{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9AA0A6; margin-bottom:2px;}
   .sb-title{font-size:21px; font-weight:600; margin:0 0 20px; line-height:1.25;}
-  .sb-section{margin-bottom:22px;}
+  .sb-section{margin-bottom:16px;}
   .sb-label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#9AA0A6; margin-bottom:9px; display:flex; justify-content:space-between; align-items:baseline;}
+  .sb-label > span:first-child{display:flex; align-items:center;}
   .sb-range{color:#6E747B; font-size:10.5px;}
   .sb-empty{font-size:13px; color:#8B9096; padding:10px 0; border-top:1px dashed rgba(237,238,233,.15);}
-  .due-item{display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-top:1px dashed rgba(237,238,233,.15);}
-  .due-item:first-child{border-top:none;}
+  .week-dot{display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:7px; flex:none;}
+  .week-dot.current{background:#7FD98A;}
+  .week-dot.next{background:#6E747B;}
+  .week-block{border-radius:9px; padding:12px 12px 4px;}
+  .week-block.current{background:rgba(127,217,138,.07); border:1px solid rgba(127,217,138,.18);}
+  .week-block.next{background:rgba(237,238,233,.04); border:1px solid rgba(237,238,233,.1);}
+  .week-type-label{font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:#7A8086; margin:10px 0 3px; font-weight:600;}
+  .week-type-label:first-of-type{margin-top:2px;}
+  .due-item{display:flex; gap:9px; align-items:flex-start; padding:7px 0; border-top:1px dashed rgba(237,238,233,.15);}
+  .week-type-label + .due-item{border-top:none;}
   .swatch-dot{width:9px; height:9px; border-radius:2px; margin-top:4px; flex:none;}
   .due-item-body{min-width:0;}
   .due-name{font-size:13px; line-height:1.35; color:#EDEEE9; font-weight:500;}
   .due-meta{font-size:11px; color:#9AA0A6; margin-top:2px;}
   .due-meta .code{color:#C7CBCF;}
-
-  /* mini calendar */
-  .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
-  .cal-month{font-size:12.5px; font-weight:600; letter-spacing:.02em;}
-  .cal-controls{display:flex; gap:4px; align-items:center;}
-  .cal-nav{background:rgba(237,238,233,.08); border:1px solid rgba(237,238,233,.15); color:#EDEEE9; width:20px; height:20px; border-radius:5px; cursor:pointer; font-size:11px; line-height:1; display:flex; align-items:center; justify-content:center; padding:0;}
-  .cal-nav:hover{background:rgba(237,238,233,.18);}
-  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:10px;}
-  .cal-dow{font-size:9.5px; text-align:center; color:#7A8086; padding-bottom:3px;}
-  .cal-cell{aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:11px; color:#C7CBCF; border-radius:5px; position:relative; cursor:default; background:rgba(237,238,233,.03);}
-  .cal-cell.pad{background:none !important; color:transparent; box-shadow:none !important;}
-  .cal-cell.clickable{cursor:pointer;}
-  .cal-cell.clickable:hover{filter:brightness(1.25);}
-  .cal-dots{display:flex; gap:2px; position:absolute; bottom:3px;}
-  .cal-dots span{width:4px; height:4px; border-radius:50%;}
-  .legend{display:flex; flex-direction:column; gap:6px; padding-top:8px; border-top:1px solid rgba(237,238,233,.12);}
-  .legend-row{display:flex; align-items:center; gap:7px; font-size:11px; color:#B7BBBF;}
-  .cal-key{display:flex; gap:12px; padding-top:8px; font-size:10.5px; color:#9AA0A6;}
-  .cal-key span{display:flex; align-items:center; gap:5px;}
-  .cal-key i{width:10px; height:10px; border-radius:3px; display:inline-block;}
 
   /* command area, pinned bottom */
   .sb-bottom{margin-top:auto; padding-top:14px; border-top:1px solid rgba(237,238,233,.12);}
@@ -107,13 +96,36 @@
   /* ---------- main ---------- */
   .main{padding:34px 40px 60px;}
   @media (max-width:600px){.main{padding:22px 18px 44px;}}
-  .topbar{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:30px; flex-wrap:wrap; gap:10px;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; margin-bottom:30px; flex-wrap:wrap; gap:14px;}
+  .topbar-left{display:flex; align-items:center; gap:14px; min-width:0;}
   .topbar h1{font-size:26px; margin:0 0 4px;}
   .topbar .sub{color:var(--ink-soft); font-size:14px;}
   .topbar-actions{display:flex; gap:8px; align-items:center;}
-  .back-btn, .theme-btn{display:none; align-items:center; gap:6px; background:none; border:1px solid var(--line); padding:8px 14px; border-radius:8px; cursor:pointer; font-size:13px; color:var(--ink); font-weight:500;}
+  .back-btn, .theme-btn{display:none; align-items:center; gap:6px; background:none; border:1px solid var(--line); padding:8px 14px; border-radius:8px; cursor:pointer; font-size:13px; color:var(--ink); font-weight:500; flex:none;}
   .theme-btn{display:inline-flex;}
   .back-btn:hover, .theme-btn:hover{background:var(--paper); border-color:#C9C4B4;}
+
+  /* calendar panel (main page) */
+  .calendar-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
+  .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .cal-month{font-size:18px; font-weight:600; letter-spacing:.01em; font-family:'Space Grotesk',sans-serif;}
+  .cal-controls{display:flex; gap:6px; align-items:center;}
+  .cal-nav{background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); width:28px; height:28px; border-radius:7px; cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center; padding:0;}
+  .cal-nav:hover{background:var(--line-soft);}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:14px;}
+  .cal-dow{font-size:11px; text-align:center; color:var(--ink-soft); padding-bottom:6px; font-weight:600; letter-spacing:.04em;}
+  .cal-cell{aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:13.5px; color:var(--ink); border-radius:8px; position:relative; cursor:default; background:var(--paper-dim);}
+  .cal-cell.pad{background:none !important; color:transparent; box-shadow:none !important;}
+  .cal-cell.clickable{cursor:pointer;}
+  .cal-cell.clickable:hover{filter:brightness(.97);}
+  body.dark .cal-cell.clickable:hover{filter:brightness(1.2);}
+  .cal-dots{display:flex; gap:2px; position:absolute; bottom:4px;}
+  .cal-dots span{width:5px; height:5px; border-radius:50%;}
+  .legend{display:flex; flex-wrap:wrap; gap:8px 16px; padding-top:12px; border-top:1px solid var(--line-soft);}
+  .legend-row{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--ink-soft);}
+  .cal-key{display:flex; gap:16px; padding-bottom:12px; font-size:11.5px; color:var(--ink-soft);}
+  .cal-key span{display:flex; align-items:center; gap:6px;}
+  .cal-key i{width:11px; height:11px; border-radius:3px; display:inline-block;}
 
   /* notes panel (main page) */
   .notes-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
@@ -140,7 +152,7 @@
   .notebooks-panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
   .notebooks-panel-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;}
   .notebooks-panel-head h2{font-size:18px; margin:0;}
-  .notebooks-panel-actions{display:flex; gap:8px;}
+  .notebooks-panel-actions{display:flex; gap:8px; flex-wrap:wrap;}
   .notebooks-panel-actions button{background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); border-radius:6px; cursor:pointer; font-size:11px; padding:6px 10px;}
   .notebooks-panel-actions button:hover{background:var(--line-soft);}
   .notebook-row{display:flex; gap:10px; align-items:center; padding:11px 0; border-top:1px solid var(--line-soft);}
@@ -152,7 +164,10 @@
   .notebook-row-actions{display:flex; gap:6px; flex:none;}
   .notebooks-empty{color:var(--ink-soft); font-size:13px; padding:6px 0;}
 
-  /* notebook editor view */
+  /* notebook folder view (list of pages inside a notebook) */
+  .nb-folder-view{display:none; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:26px;}
+
+  /* notebook page editor view */
   .notebook-editor{display:none;}
   .nb-editor-head{display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;}
   .nb-editor-head input{flex:1; min-width:180px; font-size:19px; font-weight:600; font-family:'Space Grotesk',sans-serif; border:1px solid transparent; background:none; color:var(--ink); padding:4px 6px; border-radius:6px;}
@@ -203,10 +218,12 @@
   .assign-table tr.is-complete{background:rgba(62,142,92,.16);}
   body.dark .assign-table tr.is-complete{background:rgba(62,142,92,.26);}
   .assign-table tr.is-complete td{text-decoration:line-through; text-decoration-color:rgba(31,35,40,.35);}
-  .assign-table tr.is-complete td.chk-cell, .assign-table tr.is-complete td.del-cell{text-decoration:none;}
+  .assign-table tr.is-complete td.chk-cell, .assign-table tr.is-complete td.edit-cell{text-decoration:none;}
   .chk-cell{width:30px;}
   .chk-cell input{width:16px; height:16px; cursor:pointer;}
-  .del-cell{width:30px; text-align:center;}
+  .edit-cell{width:64px; text-align:center;}
+  .row-edit-btn{background:none; border:1px solid var(--line); color:var(--ink-soft); font-size:10.5px; font-weight:600; letter-spacing:.03em; padding:5px 10px; border-radius:5px; cursor:pointer; white-space:nowrap;}
+  .row-edit-btn:hover{background:var(--paper-dim); color:var(--ink); border-color:#C9C4B4;}
   .row-del-btn{background:none; border:none; color:var(--red); font-size:15px; font-weight:700; cursor:pointer; line-height:1; padding:2px 4px;}
   .row-del-btn:hover{background:var(--red); color:#fff; border-radius:4px;}
   .type-pill{font-size:10.5px; padding:2px 8px; border-radius:100px; background:var(--paper-dim); color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
@@ -231,6 +248,8 @@
   .modal-item-meta{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
   .modal-section-label{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin:14px 0 4px;}
   .modal-section-label:first-child{margin-top:0;}
+  .modal-filter-row{margin-bottom:12px;}
+  .modal-filter-row select{width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--paper-dim); color:var(--ink); font-size:13px; font-weight:500;}
 
   .field-group{margin-bottom:14px;}
   .field-label{font-size:11.5px; font-weight:600; color:var(--ink-soft); margin-bottom:5px; display:block;}
@@ -248,6 +267,9 @@
   .modal-submit.danger:disabled{background:var(--line); color:var(--ink-soft);}
   .warning-text{font-size:13px; color:var(--ink-soft); line-height:1.5; margin-bottom:14px;}
   .warning-text strong{color:var(--ink);}
+  .modal-delete-row{margin-top:16px; padding-top:14px; border-top:1px solid var(--line-soft);}
+  .trash-btn{width:100%; background:none; border:1px solid var(--red); color:var(--red); border-radius:7px; padding:10px; cursor:pointer; font-size:13px; font-weight:600; display:flex; align-items:center; gap:7px; justify-content:center;}
+  .trash-btn:hover{background:var(--red); color:#fff;}
 </style>
 </head>
 <body>
@@ -257,31 +279,14 @@
     <div class="sb-brand">Fall 2026 &middot; EICC</div>
     <h2 class="sb-title">EICC Classes</h2>
 
-    <div class="sb-section">
-      <div class="sb-label"><span>This Week</span><span class="sb-range" id="thisWeekRange"></span></div>
+    <div class="sb-section week-block current">
+      <div class="sb-label"><span><span class="week-dot current"></span>This Week</span><span class="sb-range" id="thisWeekRange"></span></div>
       <div id="thisWeekList"></div>
     </div>
 
-    <div class="sb-section">
-      <div class="sb-label"><span>Next Week</span><span class="sb-range" id="nextWeekRange"></span></div>
+    <div class="sb-section week-block next">
+      <div class="sb-label"><span><span class="week-dot next"></span>Next Week</span><span class="sb-range" id="nextWeekRange"></span></div>
       <div id="nextWeekList"></div>
-    </div>
-
-    <div class="sb-section">
-      <div class="cal-head">
-        <div class="cal-month" id="calMonthLabel"></div>
-        <div class="cal-controls">
-          <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
-          <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
-        </div>
-      </div>
-      <div class="cal-grid" id="calDowRow"></div>
-      <div class="cal-grid" id="calGrid"></div>
-      <div class="cal-key">
-        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
-        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
-      </div>
-      <div class="legend" id="legend"></div>
     </div>
 
     <div class="sb-bottom">
@@ -300,12 +305,12 @@
       </div>
       <div class="cmd-panel" id="cmdPanel" style="display:none;">
         <div class="cmd-choice" id="cmdChoice">
-          <button id="cmdChoiceNote">Note</button>
+          <button id="cmdChoiceNote">Announcement</button>
           <button id="cmdChoiceCal">Calendar</button>
         </div>
         <div id="cmdNoteArea" style="display:none;">
-          <textarea id="cmdNoteText" placeholder="Type your note..."></textarea>
-          <button class="sb-mini-btn" id="cmdNoteSubmit">Queue note</button>
+          <textarea id="cmdNoteText" placeholder="Type your announcement..."></textarea>
+          <button class="sb-mini-btn" id="cmdNoteSubmit">Queue announcement</button>
         </div>
         <div id="cmdCalArea" style="display:none;">
           <div class="cmd-line-wrap" style="margin-top:8px;">
@@ -324,23 +329,42 @@
 
   <main class="main">
     <div class="topbar">
-      <div>
-        <h1 id="pageTitle">Your Courses</h1>
-        <div class="sub" id="pageSub">Fall 2026 &middot; four asynchronous Canvas courses</div>
+      <div class="topbar-left">
+        <button class="back-btn" id="backBtn">&#8592; All courses</button>
+        <div>
+          <h1 id="pageTitle">Your Courses</h1>
+          <div class="sub" id="pageSub">Fall 2026 &middot; four asynchronous Canvas courses</div>
+        </div>
       </div>
       <div class="topbar-actions">
-        <button class="back-btn" id="backBtn">&#8592; All courses</button>
         <button class="theme-btn" id="themeBtn">&#9789; Night mode</button>
       </div>
     </div>
 
+    <section class="calendar-panel">
+      <div class="cal-head">
+        <div class="cal-month" id="calMonthLabel"></div>
+        <div class="cal-controls">
+          <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+          <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="calDowRow"></div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-key">
+        <span><i style="background:rgba(62,142,92,.6);"></i>Available</span>
+        <span><i style="box-shadow:inset 0 0 0 2px rgba(217,83,79,.9); background:transparent;"></i>Due</span>
+      </div>
+      <div class="legend" id="legend"></div>
+    </section>
+
     <section class="notes-panel">
       <div class="notes-panel-head">
-        <h2>Notes</h2>
-        <button class="sb-mini-btn" id="noteAddToggle" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); margin-top:0;">+ Add note</button>
+        <h2>Announcements</h2>
+        <button class="sb-mini-btn" id="noteAddToggle" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); margin-top:0;">+ Add announcement</button>
       </div>
       <div class="notes-panel-add" id="noteAddRow" style="display:none;">
-        <textarea id="noteAddText" placeholder="Type a note..."></textarea>
+        <textarea id="noteAddText" placeholder="Type an announcement..."></textarea>
         <button class="sb-mini-btn" id="noteAddSubmit" style="background:var(--paper-dim); border:1px solid var(--line); color:var(--ink); margin-top:0;">Add</button>
       </div>
       <div class="notes-panel-list" id="notesList"></div>
@@ -351,11 +375,23 @@
         <h2>Notebooks</h2>
         <div class="notebooks-panel-actions">
           <button id="nbNewBtn">+ New</button>
-          <button id="nbUploadBtn">Upload .md</button>
-          <input type="file" id="nbFileInput" accept=".md,text/markdown" style="display:none;">
         </div>
       </div>
       <div id="notebooksList"></div>
+    </section>
+
+    <section class="nb-folder-view" id="nbFolderView">
+      <div class="notebooks-panel-head">
+        <h2 id="nbFolderHeading">Notes</h2>
+        <div class="notebooks-panel-actions">
+          <button id="nbRenameBtn">Rename</button>
+          <button id="nbNewPageBtn">+ New note</button>
+          <button id="nbFolderUploadBtn">Upload .md</button>
+          <button id="nbDeleteFolderBtn">Delete notebook</button>
+          <input type="file" id="nbFileInput" accept=".md,text/markdown" style="display:none;">
+        </div>
+      </div>
+      <div id="nbPagesList"></div>
     </section>
 
     <div class="card-grid" id="homeView"></div>
@@ -376,16 +412,16 @@
 
     <div class="notebook-editor" id="notebookEditor">
       <div class="nb-editor-head">
-        <input type="text" id="nbTitleInput" placeholder="Untitled notebook">
-        <button class="row-del-btn" style="border:1px solid var(--red); border-radius:6px; padding:5px 10px;" onclick="deleteOpenNotebook()">Delete</button>
+        <input type="text" id="nbTitleInput" placeholder="Untitled note">
+        <button class="row-del-btn" style="border:1px solid var(--red); border-radius:6px; padding:5px 10px;" onclick="deleteOpenNotebook()">&#128465; Delete</button>
       </div>
       <div class="nb-tabs">
-        <button class="nb-tab active" id="nbTabEdit" onclick="setNbTab('edit')">Edit</button>
-        <button class="nb-tab" id="nbTabPreview" onclick="setNbTab('preview')">Preview</button>
+        <button class="nb-tab active" id="nbTabPreview" onclick="setNbTab('preview')">Preview</button>
+        <button class="nb-tab" id="nbTabEdit" onclick="setNbTab('edit')">Edit</button>
       </div>
       <div class="nb-pane-wrap">
-        <textarea class="nb-textarea" id="nbTextarea" spellcheck="false" placeholder="Write markdown here..."></textarea>
-        <div class="nb-preview" id="nbPreview" style="display:none;"></div>
+        <textarea class="nb-textarea" id="nbTextarea" spellcheck="false" placeholder="Write markdown here..." style="display:none;"></textarea>
+        <div class="nb-preview" id="nbPreview"></div>
       </div>
       <div class="nb-editor-footer">
         <div class="nb-save-note" id="nbSaveNote">No unsaved changes.</div>
@@ -399,7 +435,12 @@
 <div class="overlay" id="overlay">
   <div class="modal">
     <div class="modal-head"><h3 id="modalDate"></h3><button class="modal-close" onclick="closeOverlay('overlay')">&times;</button></div>
-    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-body">
+      <div class="modal-filter-row">
+        <select id="modalFilter"><option value="all">All</option></select>
+      </div>
+      <div id="modalItems"></div>
+    </div>
   </div>
 </div>
 
@@ -486,6 +527,49 @@
   </div>
 </div>
 
+<!-- edit assignment modal -->
+<div class="overlay" id="editAssignOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Edit item</h3><button class="modal-close" onclick="closeOverlay('editAssignOverlay')">&times;</button></div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label">Name</label>
+        <input class="field-input" id="editAssignName" placeholder="e.g. Project 5 Research">
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Type</label>
+          <select class="field-select" id="editAssignType">
+            <option value="Project">Project</option>
+            <option value="Assignment">Assignment</option>
+            <option value="Discussion">Discussion</option>
+            <option value="Quiz">Quiz</option>
+            <option value="Not Graded">Not Graded</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Points</label>
+          <input class="field-input" id="editAssignPoints" type="number" min="0" placeholder="25">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Available date</label>
+          <input class="field-input" id="editAssignAvail" type="date">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Due date</label>
+          <input class="field-input" id="editAssignDue" type="date">
+        </div>
+      </div>
+      <button class="modal-submit" id="editAssignSubmit">Save changes</button>
+      <div class="modal-delete-row">
+        <button class="trash-btn" id="editAssignDelete">&#128465; Delete item</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============ CONFIG ============ */
 const GITHUB_REPO = "pntlsta/eicc-jcorales";
@@ -500,8 +584,9 @@ let calYear, calMonth;
 let sortStates = {}; // courseId -> {key, dir}
 let activeAssignCourse = null;
 let cmdMode = null;
+let currentFolderId = null;
 let currentOpenNotebook = null;
-let nbTab = 'edit';
+let nbTab = 'preview';
 let nbDraftTimer = null;
 
 const courseById = () => Object.fromEntries(state.courses.map(c=>[c.id,c]));
@@ -526,10 +611,15 @@ async function loadData(){
   }
   const savedPending = localStorage.getItem('tracker_pending');
   if(savedPending){ try{ state.pending = JSON.parse(savedPending); }catch(e){} }
+  try{
+    const localNotes = JSON.parse(localStorage.getItem('tracker_local_notes') || '[]');
+    localNotes.forEach(n=>{ if(!state.notes.some(x=>x.id===n.id)) state.notes.push(n); });
+  }catch(e){}
   autoFillAvailabilityNotes();
   renderAll();
 }
 function savePendingDraft(){ localStorage.setItem('tracker_pending', JSON.stringify(state.pending)); }
+function saveLocalNotes(){ localStorage.setItem('tracker_local_notes', JSON.stringify(state.notes.filter(n=>n._pending))); }
 
 /* ============ DATE HELPERS ============ */
 function toDate(iso){ const [y,m,d] = iso.split('-').map(Number); return new Date(y, m-1, d); }
@@ -553,6 +643,7 @@ function allDatedAssignments(){
 }
 
 /* ============ RENDER: WEEK LISTS ============ */
+const TYPE_ORDER = ['Assignment','Project','Discussion','Quiz','Not Graded'];
 function renderWeekSection(offset, listElId, rangeElId){
   const [start, end] = weekBounds(today, offset);
   document.getElementById(rangeElId).textContent =
@@ -561,24 +652,31 @@ function renderWeekSection(offset, listElId, rangeElId){
   const cMap = courseById();
   const items = allDatedAssignments().filter(a => a.published && inRange(a.due, start, end));
   const listEl = document.getElementById(listElId);
-  listEl.innerHTML = '';
   if(items.length === 0){
     listEl.innerHTML = `<div class="sb-empty">Nothing due ${offset===0 ? 'this' : 'next'} week.</div>`;
     return;
   }
-  for(const item of items){
-    const course = cMap[item.course];
-    if(!course) continue;
-    const row = document.createElement('div');
-    row.className = 'due-item';
-    row.innerHTML = `
-      <div class="swatch-dot" style="background:${course.hex}"></div>
-      <div class="due-item-body">
-        <div class="due-name">${item.completed ? '<s>'+item.name+'</s>' : item.name}</div>
-        <div class="due-meta"><span class="code">${course.code}</span> &middot; ${fmtShort(item.due)}${item.points!=null ? ' &middot; '+item.points+' pts' : ''}</div>
-      </div>`;
-    listEl.appendChild(row);
-  }
+  const groups = {};
+  items.forEach(item=>{ (groups[item.type] = groups[item.type] || []).push(item); });
+  const typeKeys = Object.keys(groups).sort((a,b)=>{
+    const ia = TYPE_ORDER.indexOf(a), ib = TYPE_ORDER.indexOf(b);
+    return (ia===-1?99:ia) - (ib===-1?99:ib) || a.localeCompare(b);
+  });
+  listEl.innerHTML = typeKeys.map(type=>{
+    const rows = groups[type].map(item=>{
+      const course = cMap[item.course];
+      if(!course) return '';
+      return `
+        <div class="due-item">
+          <div class="swatch-dot" style="background:${course.hex}"></div>
+          <div class="due-item-body">
+            <div class="due-name">${item.completed ? '<s>'+item.name+'</s>' : item.name}</div>
+            <div class="due-meta"><span class="code">${course.code}</span> &middot; ${fmtShort(item.due)}${item.points!=null ? ' &middot; '+item.points+' pts' : ''}</div>
+          </div>
+        </div>`;
+    }).join('');
+    return `<div class="week-type-label">${type}</div>${rows}`;
+  }).join('');
 }
 
 /* ============ RENDER: CALENDAR ============ */
@@ -624,7 +722,7 @@ function renderMiniCalendar(){
 
     const shadows = [];
     if(dueList.length) shadows.push('inset 0 0 0 2px rgba(217,83,79,.9)');
-    if(isToday) shadows.push('0 0 0 3px rgba(237,238,233,.35)', '0 3px 8px rgba(0,0,0,.4)');
+    if(isToday) shadows.push('0 0 0 3px rgba(31,35,40,.35)', '0 3px 8px rgba(0,0,0,.18)');
     if(shadows.length) cell.style.boxShadow = shadows.join(', ');
 
     if(dueList.length && availList.length){
@@ -655,8 +753,19 @@ document.getElementById('calPrev').addEventListener('click', ()=>{ calMonth--; i
 document.getElementById('calNext').addEventListener('click', ()=>{ calMonth++; if(calMonth>11){calMonth=0; calYear++;} renderMiniCalendar(); });
 
 /* ============ DAY MODAL ============ */
+let dayModalDue = [], dayModalAvail = [];
 function openDayModal(iso, dueList, availList){
   document.getElementById('modalDate').textContent = fmtLong(iso);
+  dayModalDue = dueList; dayModalAvail = availList;
+  const types = [...new Set([...dueList, ...availList].map(a=>a.type))].sort();
+  const filterEl = document.getElementById('modalFilter');
+  filterEl.innerHTML = `<option value="all">All</option>` + types.map(t=>`<option value="${t}">${t}</option>`).join('');
+  filterEl.value = 'all';
+  renderDayModalItems();
+  document.getElementById('overlay').classList.add('show');
+}
+function renderDayModalItems(){
+  const filter = document.getElementById('modalFilter').value;
   const cMap = courseById();
   const renderItem = (item) => {
     const course = cMap[item.course];
@@ -668,20 +777,23 @@ function openDayModal(iso, dueList, availList){
         <div class="modal-item-meta">${item.type}${item.points!=null ? ' · '+item.points+' pts' : ''}</div>
       </div>`;
   };
+  const dueFiltered = filter==='all' ? dayModalDue : dayModalDue.filter(i=>i.type===filter);
+  const availFiltered = filter==='all' ? dayModalAvail : dayModalAvail.filter(i=>i.type===filter);
   let html = '';
-  if(dueList.length){ html += `<div class="modal-section-label" style="color:var(--red);">Due</div>` + dueList.map(renderItem).join(''); }
-  if(availList.length){ html += `<div class="modal-section-label" style="color:var(--green);">Available</div>` + availList.map(renderItem).join(''); }
-  document.getElementById('modalBody').innerHTML = html;
-  document.getElementById('overlay').classList.add('show');
+  if(dueFiltered.length){ html += `<div class="modal-section-label" style="color:var(--red);">Due</div>` + dueFiltered.map(renderItem).join(''); }
+  if(availFiltered.length){ html += `<div class="modal-section-label" style="color:var(--green);">Available</div>` + availFiltered.map(renderItem).join(''); }
+  if(!html){ html = `<div class="notes-empty">Nothing matches this filter.</div>`; }
+  document.getElementById('modalItems').innerHTML = html;
 }
+document.getElementById('modalFilter').addEventListener('change', renderDayModalItems);
 function closeOverlay(id){ document.getElementById(id).classList.remove('show'); }
 document.getElementById('overlay').addEventListener('click', e=>{ if(e.target.id==='overlay') closeOverlay('overlay'); });
 
-/* ============ NOTES ============ */
+/* ============ ANNOUNCEMENTS (stored as "notes" internally) ============ */
 function renderNotes(){
   const list = document.getElementById('notesList');
   if(state.notes.length === 0){
-    list.innerHTML = `<div class="notes-empty">No notes yet. Click "+ Add note" to write one.</div>`;
+    list.innerHTML = `<div class="notes-empty">No announcements yet. Click "+ Add announcement" to write one.</div>`;
     return;
   }
   list.innerHTML = state.notes.map(n=>`
@@ -713,21 +825,24 @@ function addNoteLocal(text){
   const id = maxId + 1;
   state.notes.push({id, text, created: todayISO, _pending:true});
   queueCommand(`note add "${escapeQuotes(text)}"`);
+  saveLocalNotes();
   renderNotes();
 }
 function editNote(id){
   const note = state.notes.find(n=>n.id===id);
   if(!note) return;
-  const next = prompt('Edit note:', note.text);
+  const next = prompt('Edit announcement:', note.text);
   if(next === null || !next.trim()) return;
   note.text = next.trim();
   note._pending = true;
   queueCommand(`note edit ${id} "${escapeQuotes(next.trim())}"`);
+  saveLocalNotes();
   renderNotes();
 }
 function deleteNote(id){
   state.notes = state.notes.filter(n=>n.id!==id);
   queueCommand(`note delete ${id}`);
+  saveLocalNotes();
   renderNotes();
 }
 function escapeQuotes(s){ return s.replace(/"/g,"'"); }
@@ -746,96 +861,175 @@ function autoFillAvailabilityNotes(){
   });
 }
 
-/* ============ NOTEBOOKS ============ */
+/* ============ NOTEBOOKS (folders -> pages) ============ */
 function toBase64Unicode(str){ return btoa(unescape(encodeURIComponent(str))); }
-function sanitizeFilename(name){
-  let base = (name || 'untitled').toLowerCase().trim()
-    .replace(/\.md$/i,'')
+function slugify(str){
+  let base = (str || 'untitled').toLowerCase().trim()
     .replace(/[^a-z0-9]+/g,'-')
     .replace(/^-+|-+$/g,'');
-  if(!base) base = 'untitled';
-  return base + '.md';
+  return base || 'untitled';
+}
+function sanitizeFilename(name){
+  return slugify((name || 'untitled').replace(/\.md$/i,'')) + '.md';
+}
+function allPages(){ return state.notebooks.flatMap(f=>f.pages||[]); }
+function uniqueFolderId(base){
+  let candidate = base, n = 2;
+  while(state.notebooks.some(f=>f.id===candidate)){ candidate = `${base}-${n}`; n++; }
+  return candidate;
 }
 function uniqueFilename(base){
-  let candidate = base;
-  let n = 2;
+  let candidate = base, n = 2;
   const core = base.replace(/\.md$/i,'');
-  while(state.notebooks.some(nb=>nb.filename===candidate)){
-    candidate = `${core}-${n}.md`;
-    n++;
-  }
+  while(allPages().some(p=>p.filename===candidate)){ candidate = `${core}-${n}.md`; n++; }
   return candidate;
 }
 function nbDraftKey(filename){ return 'nb_draft_' + filename; }
+function folderById(id){ return state.notebooks.find(f=>f.id===id); }
 
 function renderNotebooksList(){
   const list = document.getElementById('notebooksList');
   if(state.notebooks.length === 0){
-    list.innerHTML = `<div class="notebooks-empty">No notebooks yet. Click "+ New" or "Upload .md" to start one.</div>`;
+    list.innerHTML = `<div class="notebooks-empty">No notebooks yet. Click "+ New" to start one.</div>`;
     return;
   }
   const sorted = [...state.notebooks].sort((a,b)=> (b.updated||'').localeCompare(a.updated||''));
-  list.innerHTML = sorted.map(nb=>`
+  list.innerHTML = sorted.map(f=>{
+    const pages = f.pages || [];
+    return `
     <div class="notebook-row">
       <div class="notebook-row-title">
-        <div class="nb-title" onclick="openNotebook('${nb.filename}')">${nb.title || nb.filename}${nb._pending ? ' <span class="type-pill">unsaved</span>' : ''}</div>
-        <div class="nb-meta">${nb.filename} &middot; updated ${nb.updated || nb.created || ''}</div>
+        <div class="nb-title" onclick="openFolder('${f.id}')">${f.title || f.id}${f._pending ? ' <span class="type-pill">unsaved</span>' : ''}</div>
+        <div class="nb-meta">${pages.length} note${pages.length===1?'':'s'} &middot; updated ${f.updated || f.created || ''}</div>
       </div>
       <div class="notebook-row-actions">
-        <button class="note-icon-btn-main" onclick="deleteNotebookFromList('${nb.filename}')">Delete</button>
+        <button class="note-icon-btn-main" onclick="deleteFolder('${f.id}')">Delete</button>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 document.getElementById('nbNewBtn').addEventListener('click', ()=>{
   const title = prompt('Notebook title:');
   if(title === null || !title.trim()) return;
-  const filename = uniqueFilename(sanitizeFilename(title.trim()));
+  const id = uniqueFolderId(slugify(title.trim()));
   const now = todayISO;
-  state.notebooks.push({filename, title: title.trim(), created: now, updated: now, _pending:true});
-  localStorage.setItem(nbDraftKey(filename), JSON.stringify({title: title.trim(), content: ''}));
+  state.notebooks.push({id, title: title.trim(), created: now, updated: now, pages: [], _pending:true});
+  queueCommand(`notebook folder add "${escapeQuotes(title.trim())}"`);
   renderNotebooksList();
-  openNotebook(filename);
+  openFolder(id);
 });
 
-document.getElementById('nbUploadBtn').addEventListener('click', ()=>{
+function deleteFolder(id){
+  const folder = folderById(id);
+  if(!folder) return;
+  const pages = folder.pages || [];
+  if(!confirm(`Delete notebook "${folder.title || id}" and all ${pages.length} note(s) inside? This can't be undone once saved.`)) return;
+  pages.forEach(p=>localStorage.removeItem(nbDraftKey(p.filename)));
+  state.notebooks = state.notebooks.filter(f=>f.id!==id);
+  queueCommand(`notebook folder delete "${id}"`);
+  renderNotebooksList();
+  if(currentFolderId===id){ document.getElementById('backBtn').click(); }
+}
+
+function renameFolder(){
+  const folder = folderById(currentFolderId);
+  if(!folder) return;
+  const next = prompt('Notebook title:', folder.title || folder.id);
+  if(next === null || !next.trim()) return;
+  folder.title = next.trim();
+  folder.updated = todayISO;
+  queueCommand(`notebook folder rename "${folder.id}" "${escapeQuotes(next.trim())}"`);
+  renderNotebooksList();
+  openFolder(folder.id);
+}
+document.getElementById('nbRenameBtn').addEventListener('click', renameFolder);
+document.getElementById('nbDeleteFolderBtn').addEventListener('click', ()=>{ if(currentFolderId) deleteFolder(currentFolderId); });
+
+function openFolder(id){
+  const folder = folderById(id);
+  if(!folder) return;
+  currentFolderId = id;
+  currentOpenNotebook = null;
+  hideAllViews();
+  document.getElementById('nbFolderView').style.display = 'block';
+  document.getElementById('backBtn').style.display = 'inline-flex';
+  document.getElementById('pageTitle').textContent = folder.title || folder.id;
+  document.getElementById('pageSub').textContent = `${folder.title || folder.id} notes`;
+  document.getElementById('nbFolderHeading').textContent = `${folder.title || folder.id} notes`;
+  renderFolderPages();
+}
+
+function renderFolderPages(){
+  const folder = folderById(currentFolderId);
+  const list = document.getElementById('nbPagesList');
+  if(!folder){ list.innerHTML=''; return; }
+  const pages = folder.pages || [];
+  if(pages.length === 0){
+    list.innerHTML = `<div class="notebooks-empty">No notes yet. Click "+ New note" or "Upload .md" to add one.</div>`;
+    return;
+  }
+  const sorted = [...pages].sort((a,b)=> (b.updated||'').localeCompare(a.updated||''));
+  list.innerHTML = sorted.map(p=>`
+    <div class="notebook-row">
+      <div class="notebook-row-title">
+        <div class="nb-title" onclick="openPage('${p.filename}')">${p.title || p.filename}${p._pending ? ' <span class="type-pill">unsaved</span>' : ''}</div>
+        <div class="nb-meta">${p.filename} &middot; updated ${p.updated || p.created || ''}</div>
+      </div>
+      <div class="notebook-row-actions">
+        <button class="note-icon-btn-main" onclick="deletePage('${p.filename}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+
+document.getElementById('nbNewPageBtn').addEventListener('click', ()=>{
+  const folder = folderById(currentFolderId);
+  if(!folder) return;
+  const title = prompt('Note title:');
+  if(title === null || !title.trim()) return;
+  const filename = uniqueFilename(folder.id + '-' + sanitizeFilename(title.trim()));
+  const now = todayISO;
+  (folder.pages = folder.pages || []).push({filename, title: title.trim(), created: now, updated: now, _pending:true});
+  folder.updated = now;
+  localStorage.setItem(nbDraftKey(filename), JSON.stringify({title: title.trim(), content: ''}));
+  renderFolderPages();
+  openPage(filename);
+});
+
+document.getElementById('nbFolderUploadBtn').addEventListener('click', ()=>{
   document.getElementById('nbFileInput').click();
 });
 document.getElementById('nbFileInput').addEventListener('change', (e)=>{
   const file = e.target.files[0];
-  if(!file) return;
+  const folder = folderById(currentFolderId);
+  if(!file || !folder){ e.target.value=''; return; }
   const reader = new FileReader();
   reader.onload = () => {
     const content = reader.result;
-    let filename = sanitizeFilename(file.name);
-    const collides = state.notebooks.some(nb=>nb.filename===filename);
-    if(collides){
-      const overwrite = confirm(`A notebook named "${filename}" already exists. Overwrite it with this upload?`);
-      if(!overwrite){ filename = uniqueFilename(filename); }
-    }
+    const filename = uniqueFilename(folder.id + '-' + sanitizeFilename(file.name));
     const title = file.name.replace(/\.md$/i,'');
     const now = todayISO;
-    const existingIdx = state.notebooks.findIndex(nb=>nb.filename===filename);
-    if(existingIdx >= 0){ state.notebooks[existingIdx] = {...state.notebooks[existingIdx], title, updated: now, _pending:true}; }
-    else { state.notebooks.push({filename, title, created: now, updated: now, _pending:true}); }
+    (folder.pages = folder.pages || []).push({filename, title, created: now, updated: now, _pending:true});
+    folder.updated = now;
     localStorage.setItem(nbDraftKey(filename), JSON.stringify({title, content}));
-    renderNotebooksList();
-    openNotebook(filename);
+    renderFolderPages();
+    openPage(filename);
   };
   reader.readAsText(file);
   e.target.value = '';
 });
 
-async function openNotebook(filename){
-  const entry = state.notebooks.find(nb=>nb.filename===filename);
+async function openPage(filename){
+  const folder = folderById(currentFolderId);
+  if(!folder) return;
+  const entry = (folder.pages || []).find(p=>p.filename===filename);
   if(!entry) return;
   currentOpenNotebook = filename;
-  showHomeSections(false);
-  document.getElementById('detailView').style.display = 'none';
+  hideAllViews();
   document.getElementById('notebookEditor').style.display = 'block';
   document.getElementById('backBtn').style.display = 'inline-flex';
-  document.getElementById('pageTitle').textContent = 'Notebook';
-  document.getElementById('pageSub').textContent = filename;
+  document.getElementById('pageTitle').textContent = entry.title || filename;
+  document.getElementById('pageSub').textContent = `${folder.title || folder.id} notes`;
 
   const draftRaw = localStorage.getItem(nbDraftKey(filename));
   let title = entry.title, content = '';
@@ -855,7 +1049,7 @@ async function openNotebook(filename){
   }
   document.getElementById('nbTitleInput').value = title || '';
   document.getElementById('nbTextarea').value = content || '';
-  setNbTab('edit');
+  setNbTab('preview');
   updateNbSaveNote(dirty ? 'draft' : 'clean');
 }
 
@@ -874,53 +1068,59 @@ function scheduleDraftSave(){
     const content = document.getElementById('nbTextarea').value;
     localStorage.setItem(nbDraftKey(currentOpenNotebook), JSON.stringify({title, content}));
     updateNbSaveNote('draft');
+    if(nbTab === 'preview') renderNbPreview();
   }, 400);
 }
 document.getElementById('nbTextarea').addEventListener('input', scheduleDraftSave);
 document.getElementById('nbTitleInput').addEventListener('input', scheduleDraftSave);
 
+function renderNbPreview(){
+  const raw = document.getElementById('nbTextarea').value;
+  const html = (window.marked && window.DOMPurify) ? DOMPurify.sanitize(marked.parse(raw)) : raw;
+  document.getElementById('nbPreview').innerHTML = html;
+}
 function setNbTab(tab){
   nbTab = tab;
   document.getElementById('nbTabEdit').classList.toggle('active', tab==='edit');
   document.getElementById('nbTabPreview').classList.toggle('active', tab==='preview');
   document.getElementById('nbTextarea').style.display = tab==='edit' ? 'block' : 'none';
   document.getElementById('nbPreview').style.display = tab==='preview' ? 'block' : 'none';
-  if(tab==='preview'){
-    const raw = document.getElementById('nbTextarea').value;
-    const html = (window.marked && window.DOMPurify) ? DOMPurify.sanitize(marked.parse(raw)) : raw;
-    document.getElementById('nbPreview').innerHTML = html;
-  }
+  if(tab==='preview') renderNbPreview();
 }
 
 document.getElementById('nbQueueBtn').addEventListener('click', ()=>{
-  if(!currentOpenNotebook) return;
+  const folder = folderById(currentFolderId);
+  if(!currentOpenNotebook || !folder) return;
   const filename = currentOpenNotebook;
   const title = document.getElementById('nbTitleInput').value.trim() || filename;
   const content = document.getElementById('nbTextarea').value;
   const b64 = toBase64Unicode(content);
-  queueCommand(`notebook save "${filename}" "${escapeQuotes(title)}" ${b64}`);
-  const entry = state.notebooks.find(nb=>nb.filename===filename);
+  queueCommand(`notebook page save "${folder.id}" "${filename}" "${escapeQuotes(title)}" ${b64}`);
+  const entry = (folder.pages || []).find(p=>p.filename===filename);
   if(entry){ entry.title = title; entry.updated = todayISO; delete entry._pending; }
+  folder.updated = todayISO;
   localStorage.removeItem(nbDraftKey(filename));
   updateNbSaveNote('queued');
-  renderNotebooksList();
+  renderFolderPages();
 });
 
 function deleteOpenNotebook(){
   if(!currentOpenNotebook) return;
-  deleteNotebookFromList(currentOpenNotebook, true);
+  deletePage(currentOpenNotebook);
 }
-function deleteNotebookFromList(filename, alreadyOpen){
-  const entry = state.notebooks.find(nb=>nb.filename===filename);
-  if(!entry) return;
-  if(!confirm(`Delete notebook "${entry.title || filename}"? This can't be undone once saved.`)) return;
-  state.notebooks = state.notebooks.filter(nb=>nb.filename!==filename);
+function deletePage(filename){
+  const folder = folderById(currentFolderId);
+  if(!folder) return;
+  const page = (folder.pages || []).find(p=>p.filename===filename);
+  if(!page) return;
+  if(!confirm(`Delete note "${page.title || filename}"? This can't be undone once saved.`)) return;
+  folder.pages = (folder.pages || []).filter(p=>p.filename!==filename);
+  folder.updated = todayISO;
   localStorage.removeItem(nbDraftKey(filename));
-  queueCommand(`notebook delete "${filename}"`);
-  renderNotebooksList();
-  if(alreadyOpen || currentOpenNotebook === filename){ document.getElementById('backBtn').click(); }
+  queueCommand(`notebook page delete "${folder.id}" "${filename}"`);
+  renderFolderPages();
+  if(currentOpenNotebook === filename){ document.getElementById('backBtn').click(); }
 }
-
 
 function renderHome(){
   const grid = document.getElementById('homeView');
@@ -1051,8 +1251,15 @@ function arrowFor(courseId, key){
 function showHomeSections(show){
   document.getElementById('homeView').style.display = show ? 'grid' : 'none';
   document.getElementById('homeAddRow').style.display = show ? 'flex' : 'none';
+  document.querySelector('.calendar-panel').style.display = show ? 'block' : 'none';
   document.querySelector('.notes-panel').style.display = show ? 'block' : 'none';
   document.querySelector('.notebooks-panel').style.display = show ? 'block' : 'none';
+}
+function hideAllViews(){
+  showHomeSections(false);
+  document.getElementById('detailView').style.display = 'none';
+  document.getElementById('nbFolderView').style.display = 'none';
+  document.getElementById('notebookEditor').style.display = 'none';
 }
 
 function showDetail(courseId){
@@ -1060,10 +1267,10 @@ function showDetail(courseId){
   const course = cMap[courseId];
   if(!course) return;
   activeAssignCourse = courseId;
+  currentFolderId = null;
   currentOpenNotebook = null;
 
-  showHomeSections(false);
-  document.getElementById('notebookEditor').style.display = 'none';
+  hideAllViews();
   document.getElementById('detailView').style.display = 'block';
   document.getElementById('backBtn').style.display = 'inline-flex';
   document.getElementById('pageTitle').textContent = course.name;
@@ -1092,7 +1299,7 @@ function showDetail(courseId){
         <th class="sortable mono" onclick="sortKeyClick('${courseId}','points')">Points ${arrowFor(courseId,'points')}</th>
         <th class="sortable mono" onclick="sortKeyClick('${courseId}','available')">Available ${arrowFor(courseId,'available')}</th>
         <th class="sortable mono" onclick="sortKeyClick('${courseId}','due')">Due ${arrowFor(courseId,'due')}</th>
-        <th class="del-cell"></th>
+        <th class="edit-cell"></th>
       </tr></thead>
       <tbody>
         ${rows.map(r=>`
@@ -1103,7 +1310,7 @@ function showDetail(courseId){
             <td class="mono">${r.points!=null ? r.points : '—'}</td>
             <td class="mono">${r.available ? fmtShort(r.available) : '<span class="no-due">—</span>'}</td>
             <td class="mono">${r.due ? fmtShort(r.due) : '<span class="no-due">no due date</span>'}</td>
-            <td class="del-cell"><button class="row-del-btn" onclick="deleteAssignRow('${r.id}')">&times;</button></td>
+            <td class="edit-cell"><button class="row-edit-btn" onclick="openEditAssignModal('${r.id}')">EDIT</button></td>
           </tr>`).join('')}
       </tbody>
     </table>
@@ -1118,18 +1325,6 @@ function toggleComplete(id, checked){
   document.querySelector(`tr[data-id="${id}"]`)?.classList.toggle('is-complete', checked);
   renderWeekSection(0, 'thisWeekList', 'thisWeekRange');
   renderWeekSection(1, 'nextWeekList', 'nextWeekRange');
-}
-function deleteAssignRow(id){
-  const item = state.assignments.find(a=>a.id===id);
-  if(!item) return;
-  if(!confirm(`Delete "${item.name}"? This can't be undone once saved.`)) return;
-  state.assignments = state.assignments.filter(a=>a.id!==id);
-  queueCommand(`delete ${item.type.toLowerCase()} "${escapeQuotes(item.name)}" course ${item.course}`);
-  showDetail(item.course);
-  renderWeekSection(0, 'thisWeekList', 'thisWeekRange');
-  renderWeekSection(1, 'nextWeekList', 'nextWeekRange');
-  renderMiniCalendar();
-  renderHome();
 }
 
 /* ---- add assignment modal ---- */
@@ -1174,15 +1369,76 @@ document.getElementById('newAssignSubmit').addEventListener('click', ()=>{
   renderHome();
 });
 
-document.getElementById('backBtn').addEventListener('click', ()=>{
+/* ---- edit assignment modal ---- */
+let activeEditAssignId = null;
+function openEditAssignModal(id){
+  const item = state.assignments.find(a=>a.id===id);
+  if(!item) return;
+  activeEditAssignId = id;
+  document.getElementById('editAssignName').value = item.name;
+  document.getElementById('editAssignType').value = item.type;
+  document.getElementById('editAssignPoints').value = item.points!=null ? item.points : '';
+  document.getElementById('editAssignAvail').value = item.available || '';
+  document.getElementById('editAssignDue').value = item.due || '';
+  document.getElementById('editAssignOverlay').classList.add('show');
+}
+function refreshAfterAssignChange(courseId){
+  showDetail(courseId);
+  renderWeekSection(0, 'thisWeekList', 'thisWeekRange');
+  renderWeekSection(1, 'nextWeekList', 'nextWeekRange');
+  renderMiniCalendar();
+  renderHome();
+}
+document.getElementById('editAssignSubmit').addEventListener('click', ()=>{
+  if(!activeEditAssignId) return;
+  const item = state.assignments.find(a=>a.id===activeEditAssignId);
+  if(!item) return;
+  const name = document.getElementById('editAssignName').value.trim();
+  if(!name) return;
+  const type = document.getElementById('editAssignType').value;
+  const pointsRaw = document.getElementById('editAssignPoints').value;
+  const points = pointsRaw ? parseInt(pointsRaw,10) : null;
+  const availISO = document.getElementById('editAssignAvail').value || null;
+  const dueISO = document.getElementById('editAssignDue').value || null;
+
+  item.name = name; item.type = type; item.points = points; item.available = availISO; item.due = dueISO;
+
+  const cmd = `edit item ${item.id} name "${escapeQuotes(name)}" type "${type}" points ${points!=null ? points : 'none'} start ${availISO ? isoToMMDDYYYY(availISO) : 'none'} end ${dueISO ? isoToMMDDYYYY(dueISO) : 'none'}`;
+  queueCommand(cmd);
+
+  closeOverlay('editAssignOverlay');
+  refreshAfterAssignChange(item.course);
+});
+document.getElementById('editAssignDelete').addEventListener('click', ()=>{
+  if(!activeEditAssignId) return;
+  const item = state.assignments.find(a=>a.id===activeEditAssignId);
+  if(!item) return;
+  if(!confirm(`Delete "${item.name}"? This can't be undone once saved.`)) return;
+  state.assignments = state.assignments.filter(a=>a.id!==item.id);
+  queueCommand(`delete item ${item.id}`);
+  closeOverlay('editAssignOverlay');
+  refreshAfterAssignChange(item.course);
+});
+
+/* ============ BACK NAVIGATION ============ */
+function goHome(){
+  hideAllViews();
   showHomeSections(true);
-  document.getElementById('detailView').style.display = 'none';
-  document.getElementById('notebookEditor').style.display = 'none';
   document.getElementById('backBtn').style.display = 'none';
   document.getElementById('pageTitle').textContent = 'Your Courses';
   document.getElementById('pageSub').textContent = 'Fall 2026 · four asynchronous Canvas courses';
   activeAssignCourse = null;
   currentOpenNotebook = null;
+  currentFolderId = null;
+}
+document.getElementById('backBtn').addEventListener('click', ()=>{
+  if(currentOpenNotebook && currentFolderId){
+    const folderId = currentFolderId;
+    currentOpenNotebook = null;
+    openFolder(folderId);
+  } else {
+    goHome();
+  }
 });
 
 /* ============ NIGHT MODE ============ */
@@ -1316,7 +1572,8 @@ document.getElementById('saveBtn').addEventListener('click', ()=>{
   state.pending = [];
   savePendingDraft();
   state.notes.forEach(n=> delete n._pending);
-  state.notebooks.forEach(n=> delete n._pending);
+  localStorage.removeItem('tracker_local_notes');
+  state.notebooks.forEach(f=>{ delete f._pending; (f.pages||[]).forEach(p=>delete p._pending); });
   renderAll();
 });
 
@@ -1331,6 +1588,10 @@ function renderAll(){
   renderSaveBar();
   if(document.getElementById('detailView').style.display === 'block' && activeAssignCourse){
     if(courseById()[activeAssignCourse]) showDetail(activeAssignCourse);
+    else document.getElementById('backBtn').click();
+  }
+  if(document.getElementById('nbFolderView').style.display === 'block' && currentFolderId){
+    if(folderById(currentFolderId)) renderFolderPages();
     else document.getElementById('backBtn').click();
   }
 }

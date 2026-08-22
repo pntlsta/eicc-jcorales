@@ -48,6 +48,19 @@ function nextId(courseId) {
   return `${courseId}-${max + 1}`;
 }
 
+function slugify(str) {
+  const base = (str || 'untitled').toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return base || 'untitled';
+}
+function uniqueFolderId(base) {
+  let candidate = base, n = 2;
+  while (notebooksData.notebooks.some(f => f.id === candidate)) { candidate = `${base}-${n}`; n++; }
+  return candidate;
+}
+function findFolder(id) { return notebooksData.notebooks.find(f => f.id === id); }
+
 const results = [];
 const lines = (process.env.ISSUE_BODY || '').split('\n').map(l => l.trim()).filter(Boolean);
 
@@ -135,37 +148,103 @@ for (const line of lines) {
       continue;
     }
 
-    // notebook save "filename.md" "Title" BASE64CONTENT
-    if ((m = line.match(/^notebook\s+save\s+"([^"]+\.md)"\s+"([^"]*)"\s+(\S+)\s*$/i))) {
-      const [, filename, title, b64] = m;
+    // notebook folder add "Title"
+    if ((m = line.match(/^notebook\s+folder\s+add\s+"([^"]+)"\s*$/i))) {
+      const title = m[1];
+      const id = uniqueFolderId(slugify(title));
+      const now = new Date().toISOString().slice(0, 10);
+      notebooksData.notebooks.push({ id, title, created: now, updated: now, pages: [] });
+      results.push(`OK: added notebook folder "${title}" (${id})`);
+      continue;
+    }
+
+    // notebook folder rename "id" "New Title"
+    if ((m = line.match(/^notebook\s+folder\s+rename\s+"([^"]+)"\s+"([^"]+)"\s*$/i))) {
+      const [, id, title] = m;
+      const folder = findFolder(id);
+      if (!folder) { results.push(`FAILED: "${line}" — unknown folder "${id}"`); continue; }
+      folder.title = title;
+      folder.updated = new Date().toISOString().slice(0, 10);
+      results.push(`OK: renamed folder "${id}" to "${title}"`);
+      continue;
+    }
+
+    // notebook folder delete "id"
+    if ((m = line.match(/^notebook\s+folder\s+delete\s+"([^"]+)"\s*$/i))) {
+      const id = m[1];
+      const folder = findFolder(id);
+      if (!folder) { results.push(`FAILED: "${line}" — unknown folder "${id}"`); continue; }
+      (folder.pages || []).forEach(p => {
+        const fp = path.join(NOTEBOOKS_DIR, p.filename);
+        if (fs.existsSync(fp)) fs.unlinkSync(fp);
+      });
+      const pageCount = (folder.pages || []).length;
+      notebooksData.notebooks = notebooksData.notebooks.filter(f => f.id !== id);
+      results.push(`OK: deleted notebook folder "${id}" and ${pageCount} page(s)`);
+      continue;
+    }
+
+    // notebook page save "folderId" "filename.md" "Title" BASE64CONTENT
+    if ((m = line.match(/^notebook\s+page\s+save\s+"([^"]+)"\s+"([^"]+\.md)"\s+"([^"]*)"\s+(\S+)\s*$/i))) {
+      const [, folderId, filename, title, b64] = m;
+      const folder = findFolder(folderId);
+      if (!folder) { results.push(`FAILED: "${line}" — unknown folder "${folderId}"`); continue; }
       let content;
       try {
         content = Buffer.from(b64, 'base64').toString('utf8');
       } catch (e) {
-        results.push(`FAILED: "notebook save ${filename}" — couldn't decode content`);
+        results.push(`FAILED: "notebook page save ${filename}" — couldn't decode content`);
         continue;
       }
       fs.writeFileSync(path.join(NOTEBOOKS_DIR, filename), content, 'utf8');
-      const existing = notebooksData.notebooks.find(n => n.filename === filename);
       const now = new Date().toISOString().slice(0, 10);
-      if (existing) {
-        existing.title = title || existing.title;
-        existing.updated = now;
+      folder.pages = folder.pages || [];
+      const existingPage = folder.pages.find(p => p.filename === filename);
+      if (existingPage) {
+        existingPage.title = title || existingPage.title;
+        existingPage.updated = now;
       } else {
-        notebooksData.notebooks.push({ filename, title: title || filename, created: now, updated: now });
+        folder.pages.push({ filename, title: title || filename, created: now, updated: now });
       }
-      results.push(`OK: saved notebook "${filename}"`);
+      folder.updated = now;
+      results.push(`OK: saved page "${filename}" in folder "${folderId}"`);
       continue;
     }
 
-    // notebook delete "filename.md"
-    if ((m = line.match(/^notebook\s+delete\s+"([^"]+\.md)"\s*$/i))) {
-      const filename = m[1];
+    // notebook page delete "folderId" "filename.md"
+    if ((m = line.match(/^notebook\s+page\s+delete\s+"([^"]+)"\s+"([^"]+\.md)"\s*$/i))) {
+      const [, folderId, filename] = m;
+      const folder = findFolder(folderId);
+      if (!folder) { results.push(`FAILED: "${line}" — unknown folder "${folderId}"`); continue; }
       const filePath = path.join(NOTEBOOKS_DIR, filename);
       if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-      const before = notebooksData.notebooks.length;
-      notebooksData.notebooks = notebooksData.notebooks.filter(n => n.filename !== filename);
-      results.push(notebooksData.notebooks.length < before ? `OK: deleted notebook "${filename}"` : `FAILED: notebook "${filename}" not found in index`);
+      const before = (folder.pages || []).length;
+      folder.pages = (folder.pages || []).filter(p => p.filename !== filename);
+      folder.updated = new Date().toISOString().slice(0, 10);
+      results.push(folder.pages.length < before ? `OK: deleted page "${filename}" from "${folderId}"` : `FAILED: page "${filename}" not found in "${folderId}"`);
+      continue;
+    }
+
+    // edit item ID name "Name" type "Type" points VAL start VAL end VAL  (VAL is a value or "none")
+    if ((m = line.match(/^edit\s+item\s+([a-z0-9-]+)\s+name\s+"([^"]+)"\s+type\s+"([^"]+)"\s+points\s+(none|\d+)\s+start\s+(none|\d{1,2}\/\d{1,2}\/\d{4})\s+end\s+(none|\d{1,2}\/\d{1,2}\/\d{4})\s*$/i))) {
+      const [, id, name, type, points, start, end] = m;
+      const item = assignData.assignments.find(a => a.id === id);
+      if (!item) { results.push(`FAILED: "${line}" — unknown item "${id}"`); continue; }
+      item.name = name;
+      item.type = type;
+      item.points = points === 'none' ? null : parseInt(points, 10);
+      item.available = start === 'none' ? null : toISO(start);
+      item.due = end === 'none' ? null : toISO(end);
+      results.push(`OK: updated item "${id}"`);
+      continue;
+    }
+
+    // delete item ID
+    if ((m = line.match(/^delete\s+item\s+([a-z0-9-]+)\s*$/i))) {
+      const id = m[1];
+      const before = assignData.assignments.length;
+      assignData.assignments = assignData.assignments.filter(a => a.id !== id);
+      results.push(assignData.assignments.length < before ? `OK: deleted item "${id}"` : `FAILED: item "${id}" not found`);
       continue;
     }
 

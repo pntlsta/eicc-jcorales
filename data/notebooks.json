@@ -1,28 +1,60 @@
 {
   "notebooks": [
     {
-      "filename": "grt237-packaging-design.md",
+      "id": "grt237-packaging-design",
       "title": "GRT237 - Packaging Design",
       "created": "2026-08-18",
-      "updated": "2026-08-18"
+      "updated": "2026-08-18",
+      "pages": [
+        {
+          "filename": "grt237-packaging-design.md",
+          "title": "Notes",
+          "created": "2026-08-18",
+          "updated": "2026-08-18"
+        }
+      ]
     },
     {
-      "filename": "grd463-photoshop.md",
+      "id": "grd463-photoshop",
       "title": "GRD463 - Photoshop",
       "created": "2026-08-18",
-      "updated": "2026-08-18"
+      "updated": "2026-08-18",
+      "pages": [
+        {
+          "filename": "grd463-photoshop.md",
+          "title": "Notes",
+          "created": "2026-08-18",
+          "updated": "2026-08-18"
+        }
+      ]
     },
     {
-      "filename": "grt245-issues-in-graphic-arts-technology.md",
+      "id": "grt245-issues-in-graphic-arts-technology",
       "title": "GRT245 - Issues in Graphic Arts Technology",
       "created": "2026-08-18",
-      "updated": "2026-08-18"
+      "updated": "2026-08-18",
+      "pages": [
+        {
+          "filename": "grt245-issues-in-graphic-arts-technology.md",
+          "title": "Notes",
+          "created": "2026-08-18",
+          "updated": "2026-08-18"
+        }
+      ]
     },
     {
-      "filename": "grd430-indesign-ii.md",
+      "id": "grd430-indesign-ii",
       "title": "GRD430 - INDESIGN II",
       "created": "2026-08-18",
-      "updated": "2026-08-19"
+      "updated": "2026-08-19",
+      "pages": [
+        {
+          "filename": "grd430-indesign-ii.md",
+          "title": "Notes",
+          "created": "2026-08-18",
+          "updated": "2026-08-19"
+        }
+      ]
     }
   ]
 }
