@@ -245,8 +245,8 @@
       "name": "MidTerm-Poster for Social Cause",
       "points": 100,
       "type": "Assignment",
-      "due": "2026-10-18",
-      "available": null,
+      "due": "2026-10-25",
+      "available": "2026-10-07",
       "published": true,
       "completed": false
     },
@@ -256,7 +256,18 @@
       "name": "Midterm Project Discussion",
       "points": 10,
       "type": "Discussion",
-      "due": "2026-10-18",
+      "due": "2026-10-25",
+      "available": "2026-10-07",
+      "published": true,
+      "completed": false
+    },
+    {
+      "id": "grd463-37",
+      "course": "grd463",
+      "name": "Midterm Project THUMBNAILS",
+      "points": 0,
+      "type": "Assignment",
+      "due": "2026-10-14",
       "available": "2026-10-07",
       "published": true,
       "completed": false
